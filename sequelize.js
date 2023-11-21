@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes, NUMBER } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
 import "dotenv/config"
 
 const app = express();
@@ -269,6 +269,17 @@ app.post("/products", async (req, res) =>{
             })
           });
         }
+        if(newProduct.colors){
+          newProduct.collections.forEach(async (collection) => {
+            await ProductCollection.findOrCreate({
+              where:{
+                product_id: product.ID,
+                collection_id: collection
+              }
+            })
+          });
+        }
+
 
       res.json(product)
     }else{
