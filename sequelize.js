@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes, NUMBER } from "sequelize";
 import "dotenv/config"
 
 const app = express();
@@ -218,9 +218,23 @@ app.use(async (req, res, next) => {
 
 app.get("/products", async (req, res) => {
   try {
-    const products = await Product.findAll({
-      include: [{model: Color, as: "ProductColor"}, {model: Collection, as: "ProductCollection"}, {model: Review}, {model: Image}],
-    });
+    let products
+    if(req.query.pageSize >= 5){
+      products = await Product.findAll({
+        include: [{model: Color, as: "ProductColor"},
+                  {model: Collection, as: "ProductCollection"},
+                  {model: Review}, {model: Image}],
+        offset: Number(req.query.offSet),
+        limit: Number(req.query.pageSize)
+      });
+    } else {
+      products = await Product.findAll({
+        include: [{model: Color, as: "ProductColor"},
+                  {model: Collection, as: "ProductCollection"},
+                  {model: Review}, {model: Image}],
+      });
+    }
+
 
     res.json(products);
   } catch (error) {
