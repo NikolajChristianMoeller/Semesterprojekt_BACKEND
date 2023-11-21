@@ -212,7 +212,10 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// Fetch all orders with associated order items and products
+
+
+//PRODUCT
+
 app.get("/products", async (req, res) => {
   try {
     const products = await Product.findAll({
@@ -310,11 +313,11 @@ app.delete("/products/:id", async (req, res) => {
 
 
 
-
+/// COLOR /// 
 app.post("/colors", async (req, res) =>{
   try {
     const newColor = req.body;
-    const [color, built] = await Product.findOrBuild({
+    const [color, built] = await Color.findOrBuild({
       where:{ 
         Name: newColor.Name,
         Code: newColor.Code
@@ -387,6 +390,82 @@ app.delete("/colors/:id", async (req, res) => {
   }
 });
 
+// COLLECTION
+
+app.post("/collections", async (req, res) =>{
+  try {
+    const newCollection = req.body;
+    const [collection, built] = await Collection.findOrBuild({
+      where:{ 
+        Name: newCollection.Name
+            }
+    })
+    if(built){
+      collection.ID = Math.floor(Math.random() * 10000);
+      await collection.save()
+        if(newCollection.products){
+          newCollection.products.forEach( async (product) => {
+            await ProductCollection.findOrCreate({
+              where:{
+                product_id: product,
+                collection_id: newCollection.ID
+              }
+            })
+          });
+        }
+
+      res.json(collection)
+    }else{
+      res.status(500).json({error: "An Identical collection already exists!"})
+    }
+
+  } catch (error) {
+    console.error("Error creating collection:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+
+})
+
+
+app.put("/collections/:id", async (req, res) => {
+  const newCollection = req.body;
+  try {
+    const collection = await Collection.update(
+      {
+        Name: newCollection.Name,
+        Code: newCollection.Code,
+      },{
+      where: {
+        ID: req.params.id
+      }
+  });    
+
+  res.json(collection);
+
+  } catch (error) {
+    console.error("Error updating collection:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+
+  }
+
+})
+
+
+app.delete("/collection/:id", async (req, res) => {
+  try {
+    const collection = await Collection.destroy({
+      where: {
+        ID: req.params.id
+      }
+    })
+
+    res.json(collection);
+  } catch (error) {
+    console.error("Error deleting collection:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+
+  }
+});
 
 
 // Start the Express server
