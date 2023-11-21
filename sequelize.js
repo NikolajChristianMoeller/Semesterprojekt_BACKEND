@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { Sequelize, DataTypes } from "sequelize";
 import "dotenv/config"
+import fs from "fs";
 
 const app = express();
 app.use(express.json())
@@ -12,6 +13,7 @@ const PORT = pEnv.PORT | 3000 ;
 // Create a Sequelize instance
 const sequelize = new Sequelize(pEnv.MYSQL_DATABASE, pEnv.MYSQL_USER, pEnv.MYSQL_PASSWORD, {
   host: pEnv.MYSQL_HOST,
+  ssl: {ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")},
   dialect: "mysql",
 });
 
@@ -205,15 +207,6 @@ async function syncDatabase() {
   }
 }
 
-
-// Middleware for syncing the database and running example functions
-app.use(async (req, res, next) => {
-  await syncDatabase();
-  next();
-});
-
-
-
 //PRODUCT
 
 app.get("/products", async (req, res) => {
@@ -244,7 +237,7 @@ app.get("/products", async (req, res) => {
 });
 
 
-//NEEDS A BETTER TEST! V
+//NEEDS A BETTER 'WHERE'! V
 app.post("/products", async (req, res) =>{
   try {
     const newProduct = req.body;
@@ -492,8 +485,13 @@ app.delete("/collection/:id", async (req, res) => {
   }
 });
 
+// Middleware for syncing the database and running example functions
+app.use(async (req, res, next) => {
+  await syncDatabase();
+  next();
+});
 
-// Start the Express server
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
