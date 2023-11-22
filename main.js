@@ -11,9 +11,9 @@ const pEnv = process.env;
 
 const PORT = pEnv.PORT | 3000;
 
-app.get("/", (req, res) => {
-  res.send("Node express running!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Node express running!");
+// });
 
 // Create a Sequelize instance
 const sequelize = new Sequelize(
@@ -530,6 +530,7 @@ app.delete("/collection/:id", async (req, res) => {
 
 // Middleware for syncing the database and running example functions
 app.use(async (req, res, next) => {
+  res.send("Node express running!");
   await syncDatabase();
   next();
 });
