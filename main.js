@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 const pEnv = process.env;
 
-const PORT = pEnv.PORT | 3000;
+const PORT = pEnv.PORT || 8080;
 
 // app.get("/", (req, res) => {
 //   res.send("Node express running!");
