@@ -10,6 +10,11 @@ app.use(cors());
 const pEnv = process.env;
 
 const PORT = pEnv.PORT | 3000;
+
+app.get("/", (req, res) => {
+  res.send("Node express running!");
+});
+
 // Create a Sequelize instance
 const sequelize = new Sequelize(
   pEnv.MYSQL_DATABASE,
