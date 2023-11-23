@@ -1,0 +1,5 @@
+MYSQL_HOST = jane-db.mysql.database.azure.com
+MYSQL_DATABASE = semesterprojekt-db
+MYSQL_USER = Semesterprojekt
+MYSQL_PASSWORD = Kea12345
+
