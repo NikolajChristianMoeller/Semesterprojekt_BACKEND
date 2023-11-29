@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 const pEnv = process.env;
 
-const PORT = pEnv.PORT | 3000;
+const PORT = pEnv.PORT | 8080;
 
 // Create a Sequelize instance
 const sequelize = new Sequelize(
@@ -397,7 +397,6 @@ app.get("/colors", async (req, res) => {
   }
 });
 
-
 app.post("/colors", async (req, res) => {
   try {
     const newColor = req.body;
@@ -561,7 +560,6 @@ app.use(async (req, res, next) => {
   await syncDatabase();
   next();
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
