@@ -5,7 +5,7 @@
   "main": "sequelize.js",
   "type": "module",
   "scripts": {
-    "start": "node sequelize.js"
+    "start": "node main.js"
   },
   "author": "",
   "license": "ISC",
