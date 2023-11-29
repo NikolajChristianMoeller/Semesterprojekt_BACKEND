@@ -321,7 +321,7 @@ app.post("/products", async (req, res) => {
           });
         });
       }
-      if (newProduct.collection) {
+      if (newProduct.collections) {
         newProduct.collections.forEach(async (collection) => {
           await ProductCollection.findOrCreate({
             where: {
