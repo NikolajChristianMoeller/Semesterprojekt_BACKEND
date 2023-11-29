@@ -2,10 +2,10 @@
   "name": "semesterprojekt_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "sequelize.js",
   "type": "module",
   "scripts": {
-    "start": "node main.js"
+    "start": "node sequelize.js"
   },
   "author": "",
   "license": "ISC",
