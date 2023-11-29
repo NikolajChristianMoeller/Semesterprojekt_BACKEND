@@ -11,10 +11,6 @@ const pEnv = process.env;
 
 const PORT = pEnv.PORT | 3000;
 
-app.get("/", (req, res) => {
-  res.send("Node express running!");
-});
-
 // Create a Sequelize instance
 const sequelize = new Sequelize(
   pEnv.MYSQL_DATABASE,
@@ -259,7 +255,7 @@ Image.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync(); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({force:true}); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -313,7 +309,7 @@ app.post("/products", async (req, res) => {
       },
     });
     if (built) {
-      product.ID = Math.floor(Math.random() * 10000);
+      product.ID = Math.floor(Math.random() * 100000000);
       await product.save();
       if (newProduct.colors) {
         newProduct.colors.forEach(async (color) => {
@@ -325,7 +321,7 @@ app.post("/products", async (req, res) => {
           });
         });
       }
-      if (newProduct.colors) {
+      if (newProduct.collection) {
         newProduct.collections.forEach(async (collection) => {
           await ProductCollection.findOrCreate({
             where: {
@@ -385,6 +381,23 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 /// COLOR ///
+app.get("/colors", async (req, res) => {
+  try {
+    let colors;
+    if (req.query.pageSize >= 5) {
+      colors = await Color.findAll();
+    } else {
+      colors = await Color.findAll();
+    }
+
+    res.json(colors);
+  } catch (error) {
+    console.error("Error fetching colors:", error);
+    res.status(500).json({ error: "Internal Server Error in 'Colors'" });
+  }
+});
+
+
 app.post("/colors", async (req, res) => {
   try {
     const newColor = req.body;
@@ -395,7 +408,7 @@ app.post("/colors", async (req, res) => {
       },
     });
     if (built) {
-      color.ID = Math.floor(Math.random() * 10000);
+      color.ID = Math.floor(Math.random() * 100000000);
       await color.save();
       if (newColor.products) {
         newColor.products.forEach(async (product) => {
@@ -456,6 +469,21 @@ app.delete("/colors/:id", async (req, res) => {
 });
 
 // COLLECTION
+app.get("/collections", async (req, res) => {
+  try {
+    let collections;
+    if (req.query.pageSize >= 5) {
+      collections = await Collection.findAll();
+    } else {
+      collections = await Collection.findAll();
+    }
+
+    res.json(collections);
+  } catch (error) {
+    console.error("Error fetching collections:", error);
+    res.status(500).json({ error: "Internal Server Error in 'Collection'" });
+  }
+});
 
 app.post("/collections", async (req, res) => {
   try {
@@ -466,7 +494,7 @@ app.post("/collections", async (req, res) => {
       },
     });
     if (built) {
-      collection.ID = Math.floor(Math.random() * 10000);
+      collection.ID = Math.floor(Math.random() * 100000000);
       await collection.save();
       if (newCollection.products) {
         newCollection.products.forEach(async (product) => {
@@ -533,6 +561,7 @@ app.use(async (req, res, next) => {
   await syncDatabase();
   next();
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
