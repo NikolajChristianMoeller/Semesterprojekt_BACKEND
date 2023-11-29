@@ -255,7 +255,7 @@ Image.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync({force:true}); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync(); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -321,7 +321,7 @@ app.post("/products", async (req, res) => {
           });
         });
       }
-      if (newProduct.collection) {
+      if (newProduct.collections) {
         newProduct.collections.forEach(async (collection) => {
           await ProductCollection.findOrCreate({
             where: {
