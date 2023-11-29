@@ -255,7 +255,7 @@ Image.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync(); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({force:true}); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -309,7 +309,7 @@ app.post("/products", async (req, res) => {
       },
     });
     if (built) {
-      product.ID = Math.floor(Math.random() * 10000);
+      product.ID = Math.floor(Math.random() * 100000000);
       await product.save();
       if (newProduct.colors) {
         newProduct.colors.forEach(async (color) => {
@@ -381,6 +381,23 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 /// COLOR ///
+app.get("/colors", async (req, res) => {
+  try {
+    let colors;
+    if (req.query.pageSize >= 5) {
+      colors = await Color.findAll();
+    } else {
+      colors = await Color.findAll();
+    }
+
+    res.json(colors);
+  } catch (error) {
+    console.error("Error fetching colors:", error);
+    res.status(500).json({ error: "Internal Server Error in 'Colors'" });
+  }
+});
+
+
 app.post("/colors", async (req, res) => {
   try {
     const newColor = req.body;
@@ -391,7 +408,7 @@ app.post("/colors", async (req, res) => {
       },
     });
     if (built) {
-      color.ID = Math.floor(Math.random() * 10000);
+      color.ID = Math.floor(Math.random() * 100000000);
       await color.save();
       if (newColor.products) {
         newColor.products.forEach(async (product) => {
@@ -452,6 +469,21 @@ app.delete("/colors/:id", async (req, res) => {
 });
 
 // COLLECTION
+app.get("/collections", async (req, res) => {
+  try {
+    let collections;
+    if (req.query.pageSize >= 5) {
+      collections = await Collection.findAll();
+    } else {
+      collections = await Collection.findAll();
+    }
+
+    res.json(collections);
+  } catch (error) {
+    console.error("Error fetching collections:", error);
+    res.status(500).json({ error: "Internal Server Error in 'Collection'" });
+  }
+});
 
 app.post("/collections", async (req, res) => {
   try {
@@ -462,7 +494,7 @@ app.post("/collections", async (req, res) => {
       },
     });
     if (built) {
-      collection.ID = Math.floor(Math.random() * 10000);
+      collection.ID = Math.floor(Math.random() * 100000000);
       await collection.save();
       if (newCollection.products) {
         newCollection.products.forEach(async (product) => {
@@ -529,7 +561,7 @@ async function createSampleData() {
   try {
 
       const product1 = await Product.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Shrek Lamp",
         Price: 20000,
         Description: "Greenest lamp you will ever own. A must buy for anyone really.",
@@ -537,7 +569,7 @@ async function createSampleData() {
       })
 
       const product2 = await Product.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Dreamcatcher 2",
         Price: 300,
         Description: "Catches dreams (your milage may vary)",
@@ -545,7 +577,7 @@ async function createSampleData() {
       })
 
       const product3 = await Product.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Dreamcatcher 3",
         Price: 350,
         Description: "Catches dreams (your milage may vary)",
@@ -553,34 +585,34 @@ async function createSampleData() {
       })
 
       const color1 = await Color.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Shrek Green",
         Code: "#D1E000"
       })
 
       const color2 = await Color.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "White",
         Code: "#ffffff"
       })
       const color3 = await Color.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Black",
         Code: "#000000"
       })
 
       const collection1 = await Collection.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Collec-Shrek-tion"
       })  
       
       const collection2 = await Collection.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Name: "Collecion 2"
       }) 
 
       await Review.create({
-        ID: Math.floor(Math.random() * 10000),
+        ID: Math.floor(Math.random() * 100000000),
         Reviewer: "Mike",
         Text: "Best lamp ever. Saved my marriage. Twice!",
         Rating: 10,
@@ -642,8 +674,8 @@ async function createSampleData() {
 
 // Middleware for syncing the database and running example functions
 app.use(async (req, res, next) => {
-  await createSampleData();
   await syncDatabase();
+  // await createSampleData();
   next();
 });
 
