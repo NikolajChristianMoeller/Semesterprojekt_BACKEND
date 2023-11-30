@@ -1,8 +1,17 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes } from "sequelize";
 import "dotenv/config";
-import fs from "fs";
+import Collection from "./models/Collection.js";
+import sequelize from "./models/Sequalize.js";
+import Color from "./models/Color.js";
+import Image from "./models/Image.js";
+import Product from "./models/Product.js";
+import ProductCollection from "./models/ProductCollection.js";
+import ProductColor from "./models/ProductColor.js";
+import Review from "./models/Review.js";
+import Category from "./models/Category.js";
+import ProductCategory from "./models/ProductCategory.js";
+
 
 const app = express();
 app.use(express.json());
@@ -10,192 +19,6 @@ app.use(cors());
 const pEnv = process.env;
 
 const PORT = pEnv.PORT | 3000;
-
-// Create a Sequelize instance
-const sequelize = new Sequelize(
-  pEnv.MYSQL_DATABASE,
-  pEnv.MYSQL_USER,
-  pEnv.MYSQL_PASSWORD,
-  {
-    host: pEnv.MYSQL_HOST,
-    dialect: "mysql",
-    // dialectOptions: {
-    //   ssl: {
-    //     ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem"),
-    //   },
-    // },
-  }
-);
-
-// Define models for orders, order_items, and products
-const Product = sequelize.define("Product", {
-  ID: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    allowNull: false,
-    unique: true,
-    autoIncrement: true,
-  },
-  Name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  Price: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  Description: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  Stock: {
-    type: DataTypes.INTEGER,
-  },
-});
-
-const Collection = sequelize.define(
-  "Collection",
-  {
-    ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      unique: true,
-      autoIncrement: true,
-    },
-    Name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    createdAt: false,
-    timestamps: false,
-    updatedAt: false,
-  }
-);
-
-const Color = sequelize.define(
-  "Color",
-  {
-    ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      unique: true,
-      autoIncrement: true,
-    },
-    Name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Code: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    createdAt: false,
-    timestamps: false,
-    updatedAt: false,
-  }
-);
-
-const Review = sequelize.define("Review", {
-  ID: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    allowNull: false,
-    unique: true,
-  },
-  Reviewer: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  Rating: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  Text: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-});
-
-const Image = sequelize.define(
-  "Image",
-  {
-    href: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true,
-      unique: true,
-    },
-    Description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-  },
-  {
-    createdAt: false,
-    timestamps: false,
-    updatedAt: false,
-  }
-);
-
-const ProductColor = sequelize.define(
-  "Product_Color",
-  {
-    product_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      references: {
-        model: "Product",
-        key: "ID",
-      },
-    },
-    color_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      references: {
-        model: "Color",
-        key: "ID",
-      },
-    },
-  },
-  {
-    createdAt: false,
-    timestamps: false,
-    updatedAt: false,
-  }
-);
-
-const ProductCollection = sequelize.define(
-  "Product_Collection",
-  {
-    product_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      references: {
-        model: "Product",
-        key: "ID",
-      },
-    },
-    collection_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      references: {
-        model: "Collection",
-        key: "ID",
-      },
-    },
-  },
-  {
-    createdAt: false,
-    timestamps: false,
-    updatedAt: false,
-  }
-);
 
 // Define associations between the models
 ProductColor.associate = () => {
@@ -224,8 +47,32 @@ ProductCollection.associate = () => {
   });
 };
 
+ProductCategory.associate = () => {
+  ProductCategory.belongsTo(Product, {
+    foreignKey: "ID",
+    targetKey: "product_id",
+    as: "Product",
+  });
+  ProductCategory.belongsTo(Category, {
+    foreignKey: "ID",
+    targetKey: "category_id",
+    as: "Category",
+  });
+};
+
+Product.belongsToMany(Category, {
+  as: "Categories",
+  through: ProductCategory,
+  foreignKey: "product_id",
+});
+Category.belongsToMany(Product, {
+  as: "ProductCategory",
+  through: ProductCategory,
+  foreignKey: "category_id",
+});
+
 Product.belongsToMany(Color, {
-  as: "ProductColor",
+  as: "Colors",
   through: ProductColor,
   foreignKey: "product_id",
 });
@@ -236,7 +83,7 @@ Color.belongsToMany(Product, {
 });
 
 Product.belongsToMany(Collection, {
-  as: "ProductCollection",
+  as: "Collections",
   through: ProductCollection,
   foreignKey: "product_id",
 });
@@ -255,12 +102,14 @@ Image.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync(); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({force:true}); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
   }
 }
+
+// ROUTES //
 
 //PRODUCT
 
@@ -270,8 +119,9 @@ app.get("/products", async (req, res) => {
     if (req.query.pageSize >= 5) {
       products = await Product.findAll({
         include: [
-          { model: Color, as: "ProductColor" },
-          { model: Collection, as: "ProductCollection" },
+          { model: Color, as: "Colors" },
+          { model: Collection, as: "Collections" },
+          { model: Category, as: "Categories" },
           { model: Review },
           { model: Image },
         ],
@@ -281,8 +131,9 @@ app.get("/products", async (req, res) => {
     } else {
       products = await Product.findAll({
         include: [
-          { model: Color, as: "ProductColor" },
-          { model: Collection, as: "ProductCollection" },
+          { model: Color, as: "Colors" },
+          { model: Collection, as: "Collections" },
+          { model: Category, as: "Categories" },
           { model: Review },
           { model: Image },
         ],
@@ -305,11 +156,11 @@ app.post("/products", async (req, res) => {
         Name: newProduct.Name,
         Price: newProduct.Price,
         Description: newProduct.Description,
-        Stock: newProduct.Stock,
       },
     });
     if (built) {
       product.ID = Math.floor(Math.random() * 100000000);
+      product.Stock = newProduct.Stock;
       await product.save();
       if (newProduct.colors) {
         newProduct.colors.forEach(async (color) => {
@@ -350,6 +201,7 @@ app.put("/products/:id", async (req, res) => {
         Name: newProduct.Name,
         Price: newProduct.Price,
         Description: newProduct.Description,
+        Stock: newProduct.Stock,
       },
       {
         where: {
@@ -357,7 +209,51 @@ app.put("/products/:id", async (req, res) => {
         },
       }
     );
-
+    if (newProduct.colors) {
+      await ProductColor.destroy({
+        where: {
+          product_id: req.params.id,
+        },
+      });
+      newProduct.colors.forEach(async (color) => {
+        await ProductColor.findOrCreate({
+          where: {
+            product_id: product.ID,
+            color_id: color,
+          },
+        });
+      });
+    }
+    if (newProduct.collections) {
+      await ProductCollection.destroy({
+        where: {
+          product_id: req.params.id,
+        },
+      });
+      newProduct.collections.forEach(async (collection) => {
+        await ProductCollection.findOrCreate({
+          where: {
+            product_id: product.ID,
+            collection_id: collection,
+          },
+        });
+      });
+    }
+    if (newProduct.categories) {
+      await ProductCategory.destroy({
+        where: {
+          product_id: req.params.id,
+        },
+      });
+      newProduct.collections.forEach(async (collection) => {
+        await ProductCollection.findOrCreate({
+          where: {
+            product_id: product.ID,
+            collection_id: collection,
+          },
+        });
+      });
+    }
     res.json(product);
   } catch (error) {
     console.error("Error updating product:", error);
@@ -541,7 +437,7 @@ app.put("/collections/:id", async (req, res) => {
   }
 });
 
-app.delete("/collection/:id", async (req, res) => {
+app.delete("/collections/:id", async (req, res) => {
   try {
     const collection = await Collection.destroy({
       where: {
@@ -556,126 +452,96 @@ app.delete("/collection/:id", async (req, res) => {
   }
 });
 
-
-async function createSampleData() {
+// Category
+app.get("/categories", async (req, res) => {
   try {
+    let category;
+    if (req.query.pageSize >= 5) {
+      category = await Category.findAll();
+    } else {
+      category = await Category.findAll();
+    }
 
-      const product1 = await Product.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Shrek Lamp",
-        Price: 20000,
-        Description: "Greenest lamp you will ever own. A must buy for anyone really.",
-        Stock: 5
-      })
-
-      const product2 = await Product.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Dreamcatcher 2",
-        Price: 300,
-        Description: "Catches dreams (your milage may vary)",
-        Stock: 300
-      })
-
-      const product3 = await Product.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Dreamcatcher 3",
-        Price: 350,
-        Description: "Catches dreams (your milage may vary)",
-        Stock: 200
-      })
-
-      const color1 = await Color.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Shrek Green",
-        Code: "#D1E000"
-      })
-
-      const color2 = await Color.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "White",
-        Code: "#ffffff"
-      })
-      const color3 = await Color.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Black",
-        Code: "#000000"
-      })
-
-      const collection1 = await Collection.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Collec-Shrek-tion"
-      })  
-      
-      const collection2 = await Collection.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Name: "Collecion 2"
-      }) 
-
-      await Review.create({
-        ID: Math.floor(Math.random() * 100000000),
-        Reviewer: "Mike",
-        Text: "Best lamp ever. Saved my marriage. Twice!",
-        Rating: 10,
-        ProductID: product1.ID
-      })
-
-      await Image.create({
-        href: "image.jpeg",
-        ProductID: product1.ID,
-        Description: "Do I look like I know what a JPEG is?! I just want a picture of a god dang hotdog!"
-      })
-
-      await ProductCollection.create({
-        product_id: product1.ID,
-        collection_id: collection1.ID
-      })
-
-      await ProductCollection.create({
-        product_id: product1.ID,
-        collection_id: collection2.ID
-      })
-
-      await ProductCollection.create({
-        product_id: product2.ID,
-        collection_id: collection1.ID
-      })
-
-      await ProductCollection.create({
-        product_id: product3.ID,
-        collection_id: collection1.ID
-      })
-
-      await ProductColor.create({
-        product_id: product1.ID,
-        color_id: color1.ID
-      })
-
-      await ProductColor.create({
-        product_id: product1.ID,
-        color_id: color2.ID
-      })
-
-      await ProductColor.create({
-        product_id: product2.ID,
-        color_id: color3.ID
-      })
-
-      await ProductColor.create({
-        product_id: product3.ID,
-        color_id: color3.ID
-      })
-
-
-    console.log("Sample data created");
+    res.json(category);
   } catch (error) {
-    console.error("Error creating sample data:", error);
+    console.error("Error fetching categories:", error);
+    res.status(500).json({ error: "Internal Server Error in 'Category'" });
   }
-}
+});
+
+
+app.post("/categories", async (req, res) => {
+  try {
+    const newCategory = req.body;
+    const [category, built] = await Category.findOrBuild({
+      where: {
+        Name: newCategory.Name,
+      },
+    });
+    if (built) {
+      category.ID = Math.floor(Math.random() * 100000000);
+      await category.save();
+      if (newCategory.products) {
+        newCategory.products.forEach(async (product) => {
+          await ProductCategory.findOrCreate({
+            where: {
+              product_id: product,
+              category_id: newCategory.ID,
+            },
+          });
+        });
+      }
+
+      res.json(category);
+    } else {
+      res.status(500).json({ error: "An Identical category already exists!" });
+    }
+  } catch (error) {
+    console.error("Error creating category:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.put("/categories/:id", async (req, res) => {
+  const newCategory = req.body;
+  try {
+    const category = await Category.update(
+      {
+        Name: newCategory.Name,
+      },
+      {
+        where: {
+          ID: req.params.id,
+        },
+      }
+    );
+
+    res.json(category);
+  } catch (error) {
+    console.error("Error updating category:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/categories/:id", async (req, res) => {
+  try {
+    const category = await Category.destroy({
+      where: {
+        ID: req.params.id,
+      },
+    });
+
+    res.json(category);
+  } catch (error) {
+    console.error("Error deleting category:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 // Middleware for syncing the database and running example functions
 app.use(async (req, res, next) => {
   await syncDatabase();
-  // await createSampleData();
   next();
 });
 
