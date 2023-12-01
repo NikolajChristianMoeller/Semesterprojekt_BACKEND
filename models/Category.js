@@ -2,7 +2,7 @@ import sequelize from "./Sequalize.js";
 import { DataTypes } from "sequelize";
 
 const Category = sequelize.define(
-    "Collection",
+    "Category",
     {
       ID: {
         type: DataTypes.INTEGER,

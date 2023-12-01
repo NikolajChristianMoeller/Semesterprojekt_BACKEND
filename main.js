@@ -102,7 +102,7 @@ Image.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync({force:true}); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({force: true}); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -143,7 +143,7 @@ app.get("/products", async (req, res) => {
     res.json(products);
   } catch (error) {
     console.error("Error fetching products:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Error getting products" });
   }
 });
 
@@ -156,6 +156,7 @@ app.post("/products", async (req, res) => {
         Name: newProduct.Name,
         Price: newProduct.Price,
         Description: newProduct.Description,
+        Stock: newProduct.Stock
       },
     });
     if (built) {
@@ -189,7 +190,7 @@ app.post("/products", async (req, res) => {
     }
   } catch (error) {
     console.error("Error creating product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error CREATE PRODUCT" });
   }
 });
 
@@ -257,7 +258,7 @@ app.put("/products/:id", async (req, res) => {
     res.json(product);
   } catch (error) {
     console.error("Error updating product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error UPDATE PRODUCT" });
   }
 });
 
@@ -272,7 +273,7 @@ app.delete("/products/:id", async (req, res) => {
     res.json(product);
   } catch (error) {
     console.error("Error deleting product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error DELETE PRODUCT" });
   }
 });
 
@@ -289,7 +290,7 @@ app.get("/colors", async (req, res) => {
     res.json(colors);
   } catch (error) {
     console.error("Error fetching colors:", error);
-    res.status(500).json({ error: "Internal Server Error in 'Colors'" });
+    res.status(500).json({ error: "Internal Server Error in GET COLOR" });
   }
 });
 
@@ -323,7 +324,7 @@ app.post("/colors", async (req, res) => {
     }
   } catch (error) {
     console.error("Error creating color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error CREATE COLOR" });
   }
 });
 
@@ -345,7 +346,7 @@ app.put("/colors/:id", async (req, res) => {
     res.json(color);
   } catch (error) {
     console.error("Error updating color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error UPDATE COLOR" });
   }
 });
 
@@ -360,7 +361,7 @@ app.delete("/colors/:id", async (req, res) => {
     res.json(color);
   } catch (error) {
     console.error("Error deleting color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error DELETE COLOR" });
   }
 });
 
@@ -377,7 +378,7 @@ app.get("/collections", async (req, res) => {
     res.json(collections);
   } catch (error) {
     console.error("Error fetching collections:", error);
-    res.status(500).json({ error: "Internal Server Error in 'Collection'" });
+    res.status(500).json({ error: "Internal Server Error in GET COLLECTION" });
   }
 });
 
@@ -411,7 +412,7 @@ app.post("/collections", async (req, res) => {
     }
   } catch (error) {
     console.error("Error creating collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error CREATE COLLECTION" });
   }
 });
 
@@ -433,7 +434,7 @@ app.put("/collections/:id", async (req, res) => {
     res.json(collection);
   } catch (error) {
     console.error("Error updating collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error UPDATE COLLECTION" });
   }
 });
 
@@ -448,7 +449,7 @@ app.delete("/collections/:id", async (req, res) => {
     res.json(collection);
   } catch (error) {
     console.error("Error deleting collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error DELETE COLLECTION" });
   }
 });
 
@@ -465,7 +466,7 @@ app.get("/categories", async (req, res) => {
     res.json(category);
   } catch (error) {
     console.error("Error fetching categories:", error);
-    res.status(500).json({ error: "Internal Server Error in 'Category'" });
+    res.status(500).json({ error: "Internal Server Error in GET CATEGORY" });
   }
 });
 
@@ -498,7 +499,7 @@ app.post("/categories", async (req, res) => {
     }
   } catch (error) {
     console.error("Error creating category:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error CREATE CATEGORY" });
   }
 });
 
@@ -519,7 +520,7 @@ app.put("/categories/:id", async (req, res) => {
     res.json(category);
   } catch (error) {
     console.error("Error updating category:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error UPDATE CATEGORY" });
   }
 });
 
@@ -534,7 +535,7 @@ app.delete("/categories/:id", async (req, res) => {
     res.json(category);
   } catch (error) {
     console.error("Error deleting category:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error DELETE CATEGORY" });
   }
 });
 
