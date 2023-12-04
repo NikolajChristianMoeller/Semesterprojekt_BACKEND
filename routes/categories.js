@@ -5,7 +5,7 @@ import ProductCategory from "../models/ProductCategory.js";
 
 const categoryRoute = Router()
 
-categoryRoute.get("/categories", async (req, res) => {
+categoryRoute.get("/", async (req, res) => {
 try {
     let category;
     if (req.query.pageSize >= 5) {
@@ -22,7 +22,7 @@ try {
 });
 
 
-categoryRoute.post("/categories", async (req, res) => {
+categoryRoute.post("/", async (req, res) => {
 try {
     const newCategory = req.body;
     const [category, built] = await Category.findOrBuild({
@@ -54,7 +54,7 @@ try {
 }
 });
 
-categoryRoute.put("/categories/:id", async (req, res) => {
+categoryRoute.put("/:id", async (req, res) => {
 const newCategory = req.body;
 try {
     const category = await Category.update(
@@ -75,7 +75,7 @@ try {
 }
 });
 
-categoryRoute.delete("/categories/:id", async (req, res) => {
+categoryRoute.delete("/:id", async (req, res) => {
 try {
     const category = await Category.destroy({
     where: {

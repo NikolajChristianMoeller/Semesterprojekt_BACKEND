@@ -4,7 +4,7 @@ import ProductColor from "../models/ProductColor.js";
 
 const colorRoute = Router();
 
-colorRoute.get("/colors", async (req, res) => {
+colorRoute.get("/", async (req, res) => {
 try {
     let colors;
     if (req.query.pageSize >= 5) {
@@ -21,7 +21,7 @@ try {
 });
 
 
-colorRoute.post("/colors", async (req, res) => {
+colorRoute.post("/", async (req, res) => {
 try {
     const newColor = req.body;
     const [color, built] = await Color.findOrBuild({
@@ -54,7 +54,7 @@ try {
 }
 });
 
-colorRoute.put("/colors/:id", async (req, res) => {
+colorRoute.put("/:id", async (req, res) => {
 const newColor = req.body;
 try {
     const color = await Color.update(
@@ -76,7 +76,7 @@ try {
 }
 });
 
-colorRoute.delete("/colors/:id", async (req, res) => {
+colorRoute.delete("/:id", async (req, res) => {
 try {
     const color = await Color.destroy({
     where: {

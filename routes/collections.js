@@ -5,7 +5,7 @@ import ProductCollection from "../models/ProductCollection.js";
 const collectionRoute = Router();
 
 
-collectionRoute.get("/collections", async (req, res) => {
+collectionRoute.get("/", async (req, res) => {
 try {
     let collections;
     if (req.query.pageSize >= 5) {
@@ -21,7 +21,7 @@ try {
 }
 });
 
-collectionRoute.post("/collections", async (req, res) => {
+collectionRoute.post("/", async (req, res) => {
 try {
     const newCollection = req.body;
     const [collection, built] = await Collection.findOrBuild({
@@ -55,7 +55,7 @@ try {
 }
 });
 
-collectionRoute.put("/collections/:id", async (req, res) => {
+collectionRoute.put("/:id", async (req, res) => {
 const newCollection = req.body;
 try {
     const collection = await Collection.update(
@@ -77,7 +77,7 @@ try {
 }
 });
 
-collectionRoute.delete("/collections/:id", async (req, res) => {
+collectionRoute.delete("/:id", async (req, res) => {
 try {
     const collection = await Collection.destroy({
     where: {
