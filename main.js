@@ -123,6 +123,18 @@ app.use("/collections", collectionRoute);
 
 app.use("/categories", categoryRoute);
 
+app.get("/keys", async (req, res) =>{
+  try {
+    let product;
+      product = await Product.findAll({
+        attributes: ["ID"]     
+      });  
+    res.json(product);
+  } catch (error) {
+    console.error("Error fetching product IDs:", error);
+    res.status(500).json({ error: "Error getting product IDs" });
+  }
+})
 
 // Middleware for syncing the database and running example functions
 // runs on "/" atm should be changed so it doesn't sync everytime an undefined route is called or whenever "/" is accessed

@@ -47,6 +47,29 @@ productRoute.get("/", async (req, res) => {
     }
   });
 
+
+  productRoute.get("/:id", async (req, res) => {
+    try {
+      let product;
+      //find by pk = find by primary key so we find the item with the enter
+        product = await Product.findByPk(req.params.id,{
+            include: [
+                { model: Color, as: "Colors" },
+                { model: Collection, as: "Collections" },
+                { model: Category, as: "Categories" },
+                { model: Review },
+                { model: Image },
+            ]       
+        });  
+      res.json(product);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      res.status(500).json({ error: "Error getting products" });
+    }
+  });
+
+
+
 //NEEDS A BETTER 'WHERE'! V
 productRoute.post("/", async (req, res) => {
 try {
@@ -176,5 +199,28 @@ try {
     res.status(500).json({ error: "Internal Server Error DELETE PRODUCT" });
 }
 });
+
+// not very future proof but it is what it is right now
+// TODO: dont forget to fix this later
+productRoute.patch("/:id", async (req, res) => {
+  const newStock = req.body
+  try {
+      const product = await Product.update(
+        {
+          Stock: newStock,
+      },
+      {
+          where: {
+          ID: req.params.id,
+          },
+      });
+  
+      res.json(product);
+  } catch (error) {
+      console.error("Error updating stock:", error);
+      res.status(500).json({ error: "Internal Server Error UPDATE STOCK" });
+  }
+  });
+
 
 export default productRoute
