@@ -7,6 +7,7 @@ const Review = sequelize.define("Review", {
       primaryKey: true,
       allowNull: false,
       unique: true,
+      autoIncrement: true,
     },
     Reviewer: {
       type: DataTypes.STRING,

@@ -83,29 +83,66 @@ try {
     },
     });
     if (built) {
-    product.ID = Math.floor(Math.random() * 100000000);
-    product.Stock = newProduct.Stock;
-    await product.save();
-    if (newProduct.colors) {
-        newProduct.colors.forEach(async (color) => {
-        await ProductColor.findOrCreate({
+      if (newProduct.Colors) {
+        await ProductColor.destroy({
             where: {
-            product_id: product.ID,
-            color_id: color,
+            product_id: req.params.id,
             },
         });
-        });
-    }
-    if (newProduct.collections) {
-        newProduct.collections.forEach(async (collection) => {
-        await ProductCollection.findOrCreate({
+        newProduct.Colors.forEach(async (color) => {
+            await ProductColor.findOrCreate({
             where: {
-            product_id: product.ID,
-            collection_id: collection,
+                product_id: product.ID,
+                color_id: color,
+            },
+            });
+        });
+        }
+        if (newProduct.Collections) {
+        await ProductCollection.destroy({
+            where: {
+            product_id: req.params.id,
             },
         });
+        newProduct.Collections.forEach(async (collection) => {
+            await ProductCollection.findOrCreate({
+            where: {
+                product_id: product.ID,
+                collection_id: collection,
+            },
+            });
         });
-    }
+        }
+        if (newProduct.Categories) {
+        await ProductCategory.destroy({
+            where: {
+            product_id: req.params.id,
+            },
+        });
+        newProduct.Categories.forEach(async (category) => {
+            await ProductCategory.findOrCreate({
+            where: {
+                product_id: product.ID,
+                category_id: category,
+            },
+            });
+        });
+        }
+    
+        if(newProduct.Reviews){
+          newProduct.Reviews.forEach(async (review) => {
+            await Review.findOrCreate({
+            where: {
+              ID: Math.floor(Math.random() * 100000000),
+              Reviewer: review.Reviewer,
+              Rating: review.Rating,
+              Text: review.Text,
+              ProductID: req.params.id
+            },
+            });
+        });
+    
+        }
 
     res.json(product);
     } else {
@@ -133,13 +170,13 @@ try {
         },
     }
     );
-    if (newProduct.colors) {
+    if (newProduct.Colors) {
     await ProductColor.destroy({
         where: {
         product_id: req.params.id,
         },
     });
-    newProduct.colors.forEach(async (color) => {
+    newProduct.Colors.forEach(async (color) => {
         await ProductColor.findOrCreate({
         where: {
             product_id: product.ID,
@@ -148,13 +185,13 @@ try {
         });
     });
     }
-    if (newProduct.collections) {
+    if (newProduct.Collections) {
     await ProductCollection.destroy({
         where: {
         product_id: req.params.id,
         },
     });
-    newProduct.collections.forEach(async (collection) => {
+    newProduct.Collections.forEach(async (collection) => {
         await ProductCollection.findOrCreate({
         where: {
             product_id: product.ID,
@@ -163,21 +200,38 @@ try {
         });
     });
     }
-    if (newProduct.categories) {
+    if (newProduct.Categories) {
     await ProductCategory.destroy({
         where: {
         product_id: req.params.id,
         },
     });
-    newProduct.collections.forEach(async (collection) => {
-        await ProductCollection.findOrCreate({
+    newProduct.Categories.forEach(async (category) => {
+        await ProductCategory.findOrCreate({
         where: {
             product_id: product.ID,
-            collection_id: collection,
+            category_id: category,
         },
         });
     });
     }
+
+    if(newProduct.Reviews){
+      newProduct.Reviews.forEach(async (review) => {
+        await Review.findOrCreate({
+        where: {
+          ID: Math.floor(Math.random() * 100000000),
+          Reviewer: review.Reviewer,
+          Rating: review.Rating,
+          Text: review.Text,
+          ProductID: req.params.id
+        },
+        });
+    });
+
+    }
+
+
     res.json(product);
 } catch (error) {
     console.error("Error updating product:", error);
