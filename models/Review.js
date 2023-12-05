@@ -17,7 +17,7 @@ const Review = sequelize.define("Review", {
       allowNull: false,
     },
     Text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
   });
