@@ -200,10 +200,9 @@ try {
 }
 });
 
-// not very future proof but it is what it is right now
 // TODO: dont forget to fix this later
-productRoute.patch("/:id", async (req, res) => {
-  const newStock = req.body
+productRoute.put("/:id/stock", async (req, res) => {
+  const newStock = req.body.Stock
   try {
       const product = await Product.update(
         {
@@ -218,7 +217,7 @@ productRoute.patch("/:id", async (req, res) => {
       res.json(product);
   } catch (error) {
       console.error("Error updating stock:", error);
-      res.status(500).json({ error: "Internal Server Error UPDATE STOCK" });
+      res.status(500).json({ error: "Internal Server Error UPDATE STOCK " + error });
   }
   });
 

@@ -104,9 +104,9 @@ Product.hasMany(Image);
 Image.belongsTo(Product);
 
 // Sync the models with the database
-async function syncDatabase() {
+async function syncDatabase(bool) {
   try {
-    await sequelize.sync(); // Use { force: true } to whipe database and recreate tables on every app start (should only be used if changes are made to the schemas)
+    await sequelize.sync({force: bool}); // If { force: true } this will whipe database and recreate tables (should only be used if changes are made to the schemas)
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -136,13 +136,22 @@ app.get("/keys", async (req, res) =>{
   }
 })
 
+app.get("/", async (req, res)=>{
+  await syncDatabase(false);
+  res.send("Database Sync successful")
+})
+
+
+//top secret route to force reset the database
+//should be removed before final deploy
+app.delete("/NsgYDdDoWqga0CvO55Km", async (req, res)=>{
+  await syncDatabase(true);
+  res.send("Database Reset complete")
+})
+
+
 // Middleware for syncing the database and running example functions
 // runs on "/" atm should be changed so it doesn't sync everytime an undefined route is called or whenever "/" is accessed
-app.use(async (req, res, next) => {
-  await syncDatabase();
-  next();
-});
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
