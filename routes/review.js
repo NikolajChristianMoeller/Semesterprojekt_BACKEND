@@ -12,7 +12,7 @@ reviewRoute.post("/", async (req, res)=>{
           Reviewer: review.Reviewer,
           Rating: review.Rating,
           Text: review.Text,
-          ProductID: req.params.id
+          ProductID: review.ProductID
         },
         });
 
