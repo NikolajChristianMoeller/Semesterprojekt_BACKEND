@@ -15,6 +15,7 @@ import productRoute from "./routes/products.js";
 import colorRoute from "./routes/colors.js";
 import collectionRoute from "./routes/collections.js";
 import categoryRoute from "./routes/categories.js";
+import reviewRoute from "./routes/review.js";
 
 
 const app = express();
@@ -122,6 +123,8 @@ app.use("/colors", colorRoute);
 app.use("/collections", collectionRoute);
 
 app.use("/categories", categoryRoute);
+
+app.use("reviews", reviewRoute)
 
 app.get("/keys", async (req, res) =>{
   try {
