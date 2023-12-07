@@ -1,4 +1,4 @@
-import Review from "../models/Review";
+import Review from "../models/Review.js";
 import { Router } from "express";
 
 const reviewRoute = Router();
