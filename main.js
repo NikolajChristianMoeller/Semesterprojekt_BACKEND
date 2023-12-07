@@ -124,7 +124,7 @@ app.use("/collections", collectionRoute);
 
 app.use("/categories", categoryRoute);
 
-app.use("reviews", reviewRoute)
+app.use("/reviews", reviewRoute)
 
 app.get("/keys", async (req, res) =>{
   try {
