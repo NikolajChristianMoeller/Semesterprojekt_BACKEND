@@ -3,7 +3,7 @@ import { Router } from "express";
 
 const reviewRoute = Router();
 
-reviewRoute.create("/", async (req, res)=>{
+reviewRoute.post("/", async (req, res)=>{
     try {
         const review = req.body;
         await Review.findOrCreate({
@@ -18,8 +18,9 @@ reviewRoute.create("/", async (req, res)=>{
 
     res.send("Review Created")
     } catch (error) {
-        res.error(error)
-    }
+        console.error("Error creating review:", error);
+        res.status(500).json({ error: "Internal Server Error CREATE PRODUCT" + error });
+        }
 
 });
 
