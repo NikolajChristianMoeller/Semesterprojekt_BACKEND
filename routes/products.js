@@ -14,36 +14,97 @@ const productRoute = Router()
 
 
 productRoute.get("/", async (req, res) => {
+  const pageSize = req.params.limit != undefined ? req.params.limit : 100;
+  const filter = req.params
+  console.log(filter)
+  let products
     try {
-      let products;
-      if (req.query.pageSize >= 5) {
-        products = await Product.findAll({
-          include: [
-            { model: Color, as: "Colors" },
-            { model: Collection, as: "Collections" },
-            { model: Category, as: "Categories" },
-            { model: Review },
-            { model: Image },
-          ],
-          offset: Number(req.query.offSet),
-          limit: Number(req.query.pageSize),
-        });
-      } else {
-        products = await Product.findAll({
-          include: [
-            { model: Color, as: "Colors" },
-            { model: Collection, as: "Collections" },
-            { model: Category, as: "Categories" },
-            { model: Review },
-            { model: Image },
-          ],
-        });
-      }
-  
-      res.json(products);
+      // product here will contain 2 attributes /count/ representing the number of rows matching the query 
+      // and another attribute /rows/ containing the data matching the query
+ switch (filter) {
+  case filter == "Colors":
+    products = await Product.findAndCountAll({
+      include: [
+        { model: Color, as: "Colors", 
+        where:{
+          Name: req.params.filterValue
+        }},
+        { model: Collection, as: "Collections" },
+        { model: Category, as: "Categories" },
+        { model: Review },
+        { model: Image },
+      ],
+      offset: Number(req.query.offSet),
+      limit: pageSize,
+      order: [
+        [req.query.sortBy, req.query.sortDir]
+      ],
+    });
+    res.json(products);  
+    break;
+    case filter == "Collections":
+    products = await Product.findAndCountAll({
+      include: [
+        { model: Color, as: "Colors" },
+        { model: Collection, as: "Collections",
+        where:{
+          Name: req.params.filterValue
+        }},
+        { model: Category, as: "Categories" },
+        { model: Review },
+        { model: Image },
+      ],
+      offset: Number(req.query.offSet),
+      limit: pageSize,
+      order: [
+        [req.query.sortBy, req.query.sortDir]
+      ],
+    });
+    res.json(products);  
+    break;
+    case filter == "Categories":
+    products = await Product.findAndCountAll({
+      include: [
+        { model: Color, as: "Colors" },
+        { model: Collection, as: "Collections"},
+        { model: Category, as: "Categories",
+        where:{
+          Name: req.params.filterValue
+        }},
+        { model: Review },
+        { model: Image },
+      ],
+      offset: Number(req.query.offSet),
+      limit: pageSize,
+      order: [
+        [req.query.sortBy, req.query.sortDir]
+      ],
+    });
+    res.json(products);  
+    break;
+
+  default:
+    products = await Product.findAndCountAll({
+      include: [
+        { model: Color, as: "Colors" },
+        { model: Collection, as: "Collections" },
+        { model: Category, as: "Categories" },
+        { model: Review },
+        { model: Image },
+      ],
+      offset: Number(req.query.offSet),
+      limit: pageSize,
+      order: [
+        [req.query.sortBy, req.query.sortDir]
+      ],
+    });
+    res.json(products);  
+    break;
+ }
+
     } catch (error) {
       console.error("Error fetching products:", error);
-      res.status(500).json({ error: "Error getting products" });
+      res.status(500).json({ error: "Error getting products" + error });
     }
   });
 
