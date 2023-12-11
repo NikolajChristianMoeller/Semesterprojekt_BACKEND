@@ -4,21 +4,17 @@ import { DataTypes } from "sequelize";
 const Color = sequelize.define(
     "Color",
     {
-      ID: {
-        type: DataTypes.INTEGER,
+      Code: {
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
         unique: true,
-        autoIncrement: true,
       },
       Name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Code: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+
     },
     {
       createdAt: false,

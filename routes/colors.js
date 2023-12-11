@@ -6,12 +6,7 @@ const colorRoute = Router();
 
 colorRoute.get("/", async (req, res) => {
 try {
-    let colors;
-    if (req.query.pageSize >= 5) {
-    colors = await Color.findAll();
-    } else {
-    colors = await Color.findAll();
-    }
+     const colors = await Color.findAll();
 
     res.json(colors);
 } catch (error) {
@@ -26,19 +21,18 @@ try {
     const newColor = req.body;
     const [color, built] = await Color.findOrBuild({
     where: {
-        Name: newColor.Name,
         Code: newColor.Code,
     },
     });
     if (built) {
-    color.ID = Math.floor(Math.random() * 100000000);
+    color.Name = newColor.Name;
     await color.save();
     if (newColor.products) {
         newColor.products.forEach(async (product) => {
         await ProductColor.findOrCreate({
             where: {
             product_id: product,
-            color_id: newColor.ID,
+            color_id: newColor.Code,
             },
         });
         });
@@ -60,11 +54,11 @@ try {
     const color = await Color.update(
     {
         Name: newColor.Name,
-        Code: newColor.Code,
+        Code: req.params.id,
     },
     {
         where: {
-        ID: req.params.id,
+        Code: req.params.id,
         },
     }
     );
@@ -80,7 +74,7 @@ colorRoute.delete("/:id", async (req, res) => {
 try {
     const color = await Color.destroy({
     where: {
-        ID: req.params.id,
+        Code: req.params.id,
     },
     });
 

@@ -33,7 +33,7 @@ ProductColor.associate = () => {
     as: "Product",
   });
   ProductColor.belongsTo(Color, {
-    foreignKey: "ID",
+    foreignKey: "Code",
     targetKey: "color_id",
     as: "Color",
   });

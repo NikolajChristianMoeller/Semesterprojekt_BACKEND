@@ -134,19 +134,19 @@ productRoute.get("/", async (req, res) => {
 productRoute.post("/", async (req, res) => {
 try {
     const newProduct = req.body;
-    const [product, built] = await Product.findOrBuild({
+    const [product, created] = await Product.findOrCreate({
     where: {
         Name: newProduct.Name,
         Price: newProduct.Price,
         Description: newProduct.Description,
-        Stock: newProduct.Stock
+        Stock: newProduct.Stock,
     },
     });
-    if (built) {
+    if (created) {
       if (newProduct.Colors) {
         await ProductColor.destroy({
             where: {
-            product_id: req.params.id,
+            product_id: product.ID,
             },
         });
         newProduct.Colors.forEach(async (color) => {
@@ -161,7 +161,7 @@ try {
         if (newProduct.Collections) {
         await ProductCollection.destroy({
             where: {
-            product_id: req.params.id,
+            product_id: product.ID,
             },
         });
         newProduct.Collections.forEach(async (collection) => {
@@ -176,7 +176,7 @@ try {
         if (newProduct.Categories) {
         await ProductCategory.destroy({
             where: {
-            product_id: req.params.id,
+            product_id: product.ID,
             },
         });
         newProduct.Categories.forEach(async (category) => {
@@ -203,7 +203,7 @@ try {
         });
     
         }
-
+        
     res.json(product);
     } else {
     res.status(500).json({ error: "An Identical product already exists!" });
