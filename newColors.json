@@ -1,0 +1,50 @@
+[
+    {
+        "Code": "#ffffff",
+        "Name": "White"
+      },
+      {
+        "Code": "#000000",
+        "Name": "Black"
+      },
+      {
+        "Code": "#ff0000",
+        "Name": "Red"
+      },
+      {
+        "Code": "#00ff00",
+        "Name": "Green"
+      },
+      {
+        "Code": "#0000ff",
+        "Name": "Blue"
+      },
+      {
+        "Code": "#ffff00",
+        "Name": "Yellow"
+      },
+      {
+        "Code": "#ff00ff",
+        "Name": "Magenta"
+      },
+      {
+        "Code": "#00ffff",
+        "Name": "Cyan"
+      },
+      {
+        "Code": "#ffa500",
+        "Name": "Orange"
+      },
+      {
+        "Code": "#800080",
+        "Name": "Purple"
+      },
+      {
+        "Code": "#008000",
+        "Name": "Green"
+      },
+      {
+        "Code": "#a52a2a",
+        "Name": "Brown"
+      }
+]
