@@ -15,19 +15,18 @@ const productRoute = Router()
 
 productRoute.get("/", async (req, res) => {
   const pageSize = req.params.limit != undefined ? req.params.limit : 100;
-  const filter = req.params
-  console.log(filter)
+  console.log(req.query)
   let products
     try {
       // product here will contain 2 attributes /count/ representing the number of rows matching the query 
       // and another attribute /rows/ containing the data matching the query
- switch (filter) {
-  case filter == "Colors":
+ switch (req.query.filterBy) {
+  case req.query.filterBy = "Colors":
     products = await Product.findAndCountAll({
       include: [
         { model: Color, as: "Colors", 
         where:{
-          Name: req.params.filterValue
+          Name: req.query.filterValue
         }},
         { model: Collection, as: "Collections" },
         { model: Category, as: "Categories" },
@@ -42,7 +41,7 @@ productRoute.get("/", async (req, res) => {
     });
     res.json(products);  
     break;
-    case filter == "Collections":
+    case  req.query.filterBy = "Collections":
     products = await Product.findAndCountAll({
       include: [
         { model: Color, as: "Colors" },
@@ -62,7 +61,7 @@ productRoute.get("/", async (req, res) => {
     });
     res.json(products);  
     break;
-    case filter == "Categories":
+    case  req.query.filterBy = "Categories":
     products = await Product.findAndCountAll({
       include: [
         { model: Color, as: "Colors" },
@@ -240,7 +239,7 @@ try {
     newProduct.Colors.forEach(async (color) => {
         await ProductColor.findOrCreate({
         where: {
-            product_id: product.ID,
+            product_id: req.params.id,
             color_id: color,
         },
         });
@@ -255,7 +254,7 @@ try {
     newProduct.Collections.forEach(async (collection) => {
         await ProductCollection.findOrCreate({
         where: {
-            product_id: product.ID,
+            product_id: req.params.id,
             collection_id: collection,
         },
         });
@@ -270,7 +269,7 @@ try {
     newProduct.Categories.forEach(async (category) => {
         await ProductCategory.findOrCreate({
         where: {
-            product_id: product.ID,
+            product_id: req.params.id,
             category_id: category,
         },
         });
