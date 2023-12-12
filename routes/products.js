@@ -8,6 +8,7 @@ import ProductColor from "../models/ProductColor.js";
 import Review from "../models/Review.js";
 import Category from "../models/Category.js";
 import ProductCategory from "../models/ProductCategory.js";
+import { Op } from "sequelize";
 
 
 const productRoute = Router()
@@ -92,8 +93,31 @@ productRoute.get("/", async (req, res) => {
     products.count = await Product.count();
     res.json(products);  
     break;
+    case req.query.filterBy = "Search":
+      products.rows = await Product.findAll({
+        include: [
+        { model: Color, as: "Colors" },
+        { model: Collection, as: "Collections"},
+        { model: Category, as: "Categories"},
+        { model: Review },
+        { model: Image },
+      ],
+      offset: Number(req.query.offSet),
+      limit: Number(req.query.limit),
+      where:{Name: {[Op.substring]: req.query.filterValue}},
+      order: [
+        [req.query.sortBy, req.query.sortDir]
+      ],
+    });
 
 
+    products.count = await Product.count({
+      where:{
+        Name: {[Op.substring]: req.query.filterValue}      
+      }
+    });
+    res.json(products);  
+    break;
   default:
     products.rows = await Product.findAll({
         include: [
