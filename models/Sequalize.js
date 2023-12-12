@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import "dotenv/config";
+import fs from "fs";
 
 const pEnv = process.env;
 
