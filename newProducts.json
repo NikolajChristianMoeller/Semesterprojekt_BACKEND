@@ -1,0 +1,471 @@
+[
+    {
+        "Name": "Drømmefanger 1",
+        "Price": 179.95,
+        "Description": "Smuk måne i makramé der kan beskytte dig fra selv det værste mareridt. Denne drømmefanger til væg hænger flot i ethvert rum. Når en drømmefanger til væg indgår i din indretning kan du være sikker på at inddrage både hygge og tryghed i dit hjem. Drømmefangeren i form af denne måne er meget populær blandt jer kunder. En drømmefanger som denne er uundværlig som en del af indretningen hos den almindelige, tryghedssøgende familie. En drømmefanger er et symbol på beskyttende rammer, samt giver dit rum et æstetisk udtryk, og en følelse af blød indretning samt varme rammer!",
+        "Stock": 0,
+        "Colors": ["#000000", "#ffffff", "#00ff00"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+    },
+    {
+        "Name": "Drømmefanger 2",
+        "Price": 699.95,
+        "Description": "Denne smukke drømmefanger er lang og elegant. Fjerene er lette og lidt fluffy og giver drømmefangeren et let, elegant og luftigt look. Denne store drømmefanger til væggen passer ind i alle moderne hjem og kan bryde lidt med det lidt kliniske look hvis det er det du ønsker. Denne kæmpe drømmefanger er perfekt til den klassiske boheme indretning. Cirklerne lavet af bambus samt fjerene inviterer naturen med indenfor. Undersøgelser viser at man stresser mindre når man benytter sig af naturmateriale i indretningen, og at der produceres flere endorfiner på denne måde at indrette på.",
+        "Stock": 0,
+        "Colors": ["#ffff00", "#ffa500", "#00ff00"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "Drømmefanger 3",
+        "Price": 599,
+        "Description": "Denne store drømmefanger til væggen har et helt særligt majestætisk udtryk der passer ind i ethvert moderne hjem. En drømmefanger i sort er en sjælden en af slagsen, og denne her er af en større størrelse. Den består af elegante fjer med træperler i bunden og kan pryde den kedeligste væg du måtte have i dit hjem. Denne drømmefanger slår benene væk under dine gæster, og dig selv selvfølgelig. Det smukke fletværk er i et lækkert og slidstærkt materiale, selvom en drømmefanger nok ikke bliver udsat for så meget slid med tiden. At have denne store, smukke drømmefanger til at hænge i dit hjem giver dig ro, og den er på sin helt egen måde også ret stilren når man sammenligner med resten af de drømmefangere man ellers kan finde. Er du til den mere simple, nordiske stil er det denne drømmefanger du skal gå efter.",
+        "Stock": 0,
+        "Colors": ["#a52a2a", "#ffa500", "#800080"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "House Nordic Venezia Sofabord 1",
+        "Price": 849.95,
+        "Description": "Sofabord i messing farvet stål med glas Ø70xh40cm L: 70cm B: 70cm H: 40cm (Vægt: 7,75 kg) Materiale: Glas,stål",
+        "Stock": 0,
+        "Colors": ["#a52a2a", "#ffa500", "#800080"],
+        "Categories": [1, 7],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaborde/5eafbf5e-5f6c-11ed-ab98-cf5a8fae6573_400x.jpg" 
+    },
+    {
+        "Name": "Drømmefanger 4",
+        "Price": 399.95,
+        "Description": "Hvis du ønsker at eje et unikt stykke håndværk er denne flotte macrame drømmefanger en lovende kandidat. Giv din stue et elegant og æstetisk udtryk med en macrame drømmefanger som ophæng. Flettet er af holdbar, og lækker kvalitet. Lidt tungt i det således at fletværket holder sig samlet, og ikke flosser. Træet er lakeret så det holder på den mørkebrune, lækre farve og er nem at gøre ren. En macrame drømmefanger passer godt ind i enhver boheme indretning. Netop denne drømmefanger har en særlig stil over sig. Den kommer til at hæve indretningsniveauet med sin ynde, og det elegante look. Ved at bruge denne macrame drømmefanger i din boheme indretning skaber du blødhed samt en anderledes stil i din boheme indretning. Hæv din boheme stil til et højere niveau! Med denne boheme vægdekoration. Boheme vægdekoration tilfører din stue eller dit værelse en særlig boheme stil. Denne macrame drømmefanger er en uundværlig nipsting når man vil hæve indretningsstandarden, og opnå den ÆGTE boheme stil. En boheme vægdekoration skaber ekstra hygge til dine omgivelser, og får dig til at falde til ro når du kommer hjem og slår fødderne op i sofaen. I en boheme indretning slapper man bedre af i sit hoved og er omgivet af afslappende omgivelser. Opløft din boheme stil og tilføj denne måne i din boheme indretning!",
+        "Stock": 0,
+        "Colors": ["#ffa500", "#ff00ff", "#00ffff"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "House Nordic Lido Lounge Sofa 1",
+        "Price": 7640,
+        "Description": "Sofa højrevendt i mørkeblåt velour med fire puder HN1005 - L: 170-92cm B: 290cm H: 76cm (Vægt: 78,2 kg) - Materiale: 100% Polyester, Eg, Fyr - Sædehøjde: 43cm / Sædedybde: 64-142cm",
+        "Stock": 0,
+        "Colors": ["#ffa500", "#0000ff", "#000000"],
+        "Categories": [1, 7],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue/indretning/collections/sofaer/8cf6717c-4889-11ed-b543-1705fcc13272_540x.jpg"  
+    },
+    {
+        "Name": "House Nordic Lido Lounge Sofa 2",
+        "Price": 7640,
+        "Description": "Sofa højrevendt i stone med fire puder HN1030 - L: 170-92cm B: 290cm H: 76cm (Vægt: 78,2 kg) - Materiale: 100% Polyester, Eg, Fyr - Sædehøjde: 43cm / Sædedybde: 64-142cm Med denne House Nordic Lido Lounge Sofa i grå med sorte ben bliver din stue indretning fuldendt. Sofaen er i et lækkert design og særdeles komfortabel at sidde i. Designet er gennemført, med de lækreste detaljer, og der er samtidigt tænkt på en lys farve hvor man får svært ved at se eventuelle urenheder der måtte komme i forb. med hjem med børn.",
+        "Stock": 0,
+        "Colors": ["#ffa500", "#a52a2a", "#000000"],
+        "Categories": [1, 7],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue/indretning/collections/sofaer/a62fb8c2-1893-11ed-88b8-3f2c3f393b66_540x.jpg"   
+    },
+    {
+        "Name": "Piano drømmefanger",
+        "Price": 649.95,
+        "Description": "Smuk, lys og let drømmefanger der blender godt ind i det moderne hjem, og tilføjer blødhed og elegance til dit rum. Få en stor drømmefanger til væg som du altid har drømt om. Investér i dit skønne hjem og jag de onde drømme om natten væk. Med en stor drømmefanger til væg når du langt i dit mål om dit daglige velvære. En stor drømmefanger til væg kan udstråle varme og ro som en del af din smukke indretning.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#000000"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "Muslingeskal skål mellem",
+        "Price": 299.95,
+        "Description": "Denne smukke muslingeskal skål i mellem størrelse er håndlavet af de lokale på Bali. Den kan bruges til smykker, små håndklæder, lyskæder, stearinlys samt andre pyntegenstande. Med en muslingeskal skål er det meget varieret hvordan du kan indrette dig. F. eks. i spisestue. Her kan du benytte muslingeskal skålen til at sætte på f. eks. spisebordet i spisestuen.",
+        "Stock": 0,
+        "Categories": [5],
+        "Collections": [4,2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/3muslinger_540x.jpg"
+    },
+    {
+        "Name": "Kæmpe makramée ophæng",
+        "Price": 649.95,
+        "Description": "Smukt, håndlavet makramée ophæng importeret fra Bali. Flettet i hånden af de lokale. Med dette makramée ophæng kan du dyrke den lidt eksotiske stemning i dit hjem, tilføje dit hjem blødhed og et anderledes udtryk på den tomme væg. Et virkelig smukt alternativ til et maleri. Skabt af de lækreste naturmaterialer som giver dig en dejlig ro når du kommer hjem.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#0000ff", "#000000"],
+        "Categories": [5],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/nipsting/macrameophaeng_540x.jpg"
+
+
+    },
+    {
+        "Name": "Baliskål",
+        "Price": 135,
+        "Description": "Sød Baliskål. Importeret fra Bali og håndlavet af de lokale. Sammensat af udskårede muslingestykker. Virkelig yndig nipsting til at sætte i vindueskarmen, eller på badeværelset til de øreringe du plejer at tage ud om natten. Skålen er mat, men med et diskret perlemors skær når lyset rammer helt rigtigt. Overfladen er mildt ru som er en del af charmen ved denne yndige dekoration til dit skønne hjem. OBS! Pris er pr. skål.",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [5],
+        "Collections": [2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/3muslinger_540x.jpg"
+
+    },
+    {
+        "Name": "Drømmefanger 5",
+        "Price": 549.95,
+        "Description": "Kæmpe drømmefanger til børn. Denne lyserøde drømmefanger passer perfekt ind på pigeværelset. Denne er håndlavet af en lokal på Bali. Med denne drømmefanger indtræder den feminine stil i rummet. Vil komme til at hænge eksklusivt og majestætisk i pigens børneværelse. Drømmefangeren kan beskytte dit barn og forhindre dit barn i at få mareridt om natten. Denne kæmpe drømmefanger er med lyserøde, pastelfarvede fjer, og pyntet med perler som små flotte detaljer. Denne smukke kæmpe drømmefanger er et godt alternativ hvis man gerne vil pynte væggen med andet end billeder. De giver et helt unikt udtryk til dit hjem. En drømmefanger kan medbringe storslået elegance og lethed til din indretning, men samtidigt spice den op så den ikke ligner alle andres indretning.  Mere unikt bliver det da denne drømmefanger er håndlavet efter bestilling og der er begrænset lager. Det betyder at ved køb af denne drømmefanger er du én ud af få der ejer denne skønhed.",
+        "Stock": 0,
+        "Colors": ["#000000", "#ffffff", "#00ff00"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "Drømmefanger 6",
+        "Price": 549.95,
+        "Description": "En smuk drømmefanger med livets træ i midten. Flotte detaljer i bunden af den kæmpe drømmefanger. Bambusring er brugt som omrids. Denne smukke drømmefanger til væg vil stå flot som en del af dit boheme interiør. Kan snildt bruges til at bidrage med sin ynde, elegance og den gode kvalitet. Denne drømmefanger er ikke alene med til at jage drømmende væk. Men med symbolet der indebærer livets træ er du godt på vej mod at have den helt rette symbolik, dynamik og bohemerelaterede stemning i din bolig. Denne kæmpe drømmefanger til væggen fører dig i retning af den helt rette boheme vibe som du ønsker dig. Denne kæmpe drømmefanger til væg er rigtig god til dig der ønsker noget detaljeret, men alligevel neutralt da den er hvid og på den måde mere diskret. Som en del af dit boheme interiør passer den perfekt ind i enhver boheme indretning.",
+        "Stock": 0,
+        "Colors": ["#ff0000"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg" 
+
+    },
+    {
+        "Name": "Drømmefanger 7",
+        "Price": 549.95,
+        "Description": "Kæmpe drømmefanger til væg. Et rigtig fint og veludført arbejde håndlavet af en lokal fra Bali. Denne drømmefanger kan indbringe lidt liv og farve som en del af dit boheme interiør. Den kæmpe drømmefanger til væg er god at bruge i indretningen hvis du ønsker noget elegance og interessant hængende som en del af dit boheme interiør. Denne kæmpe drømmefanger består af materiale produceret på Bali. Drømmefangeren kan give din indretning et pust af lethed over sig. Den kan hænge frit og smuk som den er. Er også velegnet til at have som kæmpe drømmefanger til væggen.",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [5, 4],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+    },
+    {
+        "Name": "Muslingeskal skål stor",
+        "Price": 549.95,
+        "Description": "Den flotteste og mest prangende nipsting af en muslingeskal skål du kan skaffe dig må være denne smukke, og kæmpestore muslingeskal skål, der kan bruges til alverdens former for opbevaring. I denne muslingeskal kan du opbevare duftsæber, små håndklæder, smykker, og alt andet hvad hjertet begærer. Denne muslingeskal findes kun i denne shop, og kan ikke findes andre steder. Så derfor får du også et produkt der er unikt og noget for sig selv. Den flotteste nipsting du nogensinde kan indføre i din indretning. Særligt i din spisetue indretning hvor du kan bruge den på spisebordet. Den perlemorsskinnende overflade får en helt særlig glans når sollyset rammer. En nipsting som denne store muslingeskal er uundværlig i enhver indretning hvor man ønsker en storslået genstand der kan bruges som centrum i for eksempel din spisestue indretning. Automatisk vil muslingeskallen tiltrække opmærksomhed og fascination fra personer omkring den. Mange kunder er glade for muslingeskal skålen og overrasket over hvor stor og prægtig den egentlig er. Passer perfekt til din spisestue indretning. Det anbefales dog ikke at muslingeskal skålen kommer i direkte kontakt med fødevarer du indtager. Medmindre der er skræl på. De er ikke fødevaregodkendte.",
+        "Stock": 0,
+        "Colors": ["#ffff00"],
+        "Categories": [5],
+        "Collections": [4, 3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/3muslinger_540x.jpg"
+
+    },
+    {
+        "Name": "Drømmefanger 8",
+        "Price": 549.95,
+        "Description": "Denne smukke kæmpe drømmefanger i alle regnbuens farver er perfekt til at have hængende på børneværelset. Beskyt dine børn med en drømmefanger. Det er en kæmpe drømmefanger til væg der giver børneværelset et opfriskende og farverigt pust til indretningen. Drømmefanger børn har det bedst når de sover om natten og får dem til at undgå de værste mareridt. En drømmefanger giver dit barn ro om natten til at få den nødvendige søvn. Ifølge den indianske mytologi holder drømmefangeren de onde drømme væk. Om dette holder stik er svært at sige, men uanset hvad er drømmefangeren en unik og meget fængende genstand at have som en del af indretningen. Der er bare noget smukt, elegant og æstetisk over drømmefangeren der er med til at hæve niveauet i din indretning lige så snart du gør den en del af din dagligdag. Denne farverige version af en drømmefanger giver børneværelset et helt særligt strålende udtryk som kan øge dine børns energi, velvære og kreativitet.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#0000ff", "#000000"],
+        "Categories": [5, 4],
+        "Collections": [3, 2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/drømmefangere/15955617403559bc6249ea44b0eb6078c9f9b80b8f_1400x.jpg"
+
+
+    },
+    {
+        "Name": "2 stk. sideborde til opbevaring J-Line by Jolipa",
+        "Price": 3399,
+        "Description": "Jern Guld W: 50cm, H: 48cm, L: 50cm",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#0000ff", "#a52a2a"],
+        "Categories": [3,7,1],
+        "Collections": [2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaborde/d5470052-16f9-11ed-a1b8-efe27d6ead5b_400x.jpg"
+    },
+    {
+        "Name": "2 sideborde i rust m. gitter J-Line by Jolipa",
+        "Price": 3349,
+        "Description": "To sofa borde i rust kan være med til at give din stue indretning en unik, rå følelse. Den brune rustfarve bringer en mere rustik stemning til din stue indretning. Disse sofa borde matcher særligt godt til en stuepalme som du også har mulighed for at købe på shoppen. Med disse sofa borde kommer din stue indretning til at skinne igennem med sin helt egen unikke og rå stil. Eller i hvert fald et rustikt touch. Du kan sagtens bruge disse borde i en meget feminin indretning. Hvis du bare tilføjer feminine elementer såsom lyse stearinlys på bordet, bløde tæpper i lyse farver m.m. Det gode ved disse sofa borde er at de kan indgå i enhver stue indretning, og til og med vil bidrage med sit helt eget og unikke udtryk. Hvis du ydermere vælger at bruge en lækker stuepalme i din stue indretning har du en god basis for den optimale, visuelle velvære i dette vigtige rum i dit hjem. Med en stuepalme giver du din stue indretning et godt kvalitetsspark ind i de højere lag. Sofa borde i rust giver et let industriagtigt look til indretningen, men uden at virke koldt modsat de grå og mørke nuancer man oftest ser i denne form for stil i indretningen. Den brune rust giver en helt særlig varme til din indretning, og bidrager dermed til dit visuelle velvære. Her er det også særligt smart at disse borde er funktionelle og kan agere som en fix opbevaringsløsning.",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [3,7,1],
+        "Collections": [5],
+        "Images": ["https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaborde/5eafbf5e-5f6c-11ed-ab98-cf5a8fae6573_400x.jpg", "https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaborde/5eafc01c-5f6c-11ed-ab9b-e7f5194bfd17_1400x.jpg", "https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaborde/d546de24-16f9-11ed-a13a-1799dfb073d9_540x.jpg"] 
+    },
+    {
+        "Name": "Firkantet hvid puf J-line by Jolipa",
+        "Price": 890,
+        "Description": "Bomuld Hvid W: 45cm, H: 45cm, L: 45cm",
+        "Stock": 0,
+        "Colors": ["#a52a2a", "#008000"],
+        "Categories": [1, 7],  
+        "Collections": [1],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/puffer/pufhvidpolyester_540x.jpg"
+    },
+    {
+        "Name": "Lyserød bord-lampe i glas J-line by Jolipa",
+        "Price": 1199,
+        "Description": "Glas Rosa W: 30cm, H: 30cm, L: 30cm",
+        "Stock": 0,
+        "Colors": ["#ff00ff", "#800080"],
+        "Categories": [5, 6],
+        "Collections": [1],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/gulvlamper/d40067b0-16f9-11ed-9009-8b1a97886614.jpg"  
+    },
+    {
+        "Name": "Tekstil natur sofa J-Line by Jolipa",
+        "Price": 15,
+        "Description": "Teaktræ Brun W: 101cm, H: 91cm, L: 202cm",
+        "Stock": 0,
+        "Colors": ["#000000", "#ffffff", "#00ff00"],
+        "Categories": [1, 7],
+        "Collections": [2,5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue indretning/collections/sofaer/f5016f30-59da-11ed-a627-cb8c198de119_540x.jpg"  
+
+    },
+    {
+        "Name": "J-Line by Jolipa Håndlavet vase",
+        "Price": 2745,
+        "Description": "Keramik Brun B: 36cm, H: 69cm, L: 36cm",
+        "Stock": 0,
+        "Colors": ["#a52a2a", "#ffa500", "#800080"],
+        "Categories": [5],
+        "Collections": [4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/planteophæng/d3116566-16f9-11ed-acf3-bfbbef367b1e_540x.jpg"
+    },
+    {
+        "Name": "Leitmotiv stol Royal",
+        "Price": 2789,
+        "Description": "Kan du lide at få et touch af luxuriøsitet i din indretning? Så overvej denne royale stol med gulddetaljer på benene og gult velourbetræk. Vil med garanti blive din favorit! Velour emmer af luxuriøsitet. Har en elgant, skinnende overflade, og føles utroligt blød. Pas på, for den glamurøse velour lænestol er klar til at stjæle showet! Gør dig selv en tjeneste og giv dig selv en oplevelse af komfort, luksuriøsitet og skønhed med denne ultimativt behagelige Leitmotiv stol.",
+        "Stock": 0,
+        "Colors": ["#00ff00"],
+        "Categories": [1, 7],
+        "Collections": [1],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/collections/spisestole/b1a4be08-1890-11ed-bf03-cbe206249f30_540x.jpg"
+    },
+    {
+        "Name": "Leitmotiv stol brændt orange",
+        "Price": 3839,
+        "Description": "Materiale: Velour Farve: Orange B: 70cm, H: 80cm",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [1, 7],
+        "Collections": [1,2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/collections/spisestole/b1a4c164-1890-11ed-bf11-771ba75c606a_540x.jpg"
+    },
+    {
+        "Name": "Studio Leitmotiv Bordlampe i guld",
+        "Price": 610,
+        "Description": "Denne bordlampe er en af bestsellerne fra Leitmotiv. Effekten er smuk når lampen er tændt, men selv når lampen ikke er tændt, er den en særligt smuk genstand blandt dit interiør. De hvide detaljer i designet gør lampen moderne, hip og chic på samme tid.",
+        "Stock": 0,
+        "Colors": ["#008000", "#ffffff", "#00ff00"],
+        "Categories": [5, 6],
+        "Collections": [4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/gulvlamper/d40067b0-16f9-11ed-9009-8b1a97886614.jpg"
+    },
+    {
+        "Name": "J-line by Jolipa sideborde 2 stk.",
+        "Price": 1689,
+        "Description": "Materiale: Jern Guld B: 48cm, H: 60cm, L: 48cm",
+        "Stock": 0,
+        "Colors": ["#00ff00"],
+        "Categories": [3,7,1],
+        "Collections": [3,4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue/indretning/collections/sofaborde/5eafbf5e-5f6c-11ed-ab98-cf5a8fae6573_400x.jpg"
+    },
+    {
+        "Name": "J-line by Jolipa hylder 3 stk.",
+        "Price": 2125,
+        "Description": "Disse smukke hylder i guld og med spejlbaggrund giver en helt særlig æstetik til din stue indretning. Eller endda din indretning  af entréen. Disse smukke hylder i guld kan bruges i stort set alle rum, men tager sig især godt ud i stue indretning eller indretning af entréen. De matcher formidabelt til f. eks. En stuepalme som også ofte er en del af stue indretningen. Spejleffekten af disse hylder giver liv og får rummet til at synes større. Guldrammerne er med til at give varme og sjæl til stue indretningen. I disse hylder kan man f. eks. Sætte LED lys ind og hurtigt får en behagelig og rar oplevelse i det givne rum de måtte være i. Da det nu en gang er hylder har du frie muligheder for at indrette dem nøjagtigt som du har lyst til. Det anbefales at bruge et minimum af nipsting til at sætte ind i disse hylder, da de jo stort set udgør nipsting helt af sig selv! Tilsæt varme, liv og stil med disse æstetiske guldhylder i det smukkeste design. Giv dig selv den oplevelse at byde dig selv velkommen med disse elegante, stilfulde hylder der giver enhver boligfanatiker en fantastisk indretningsoplevelse af at bruge disse hylder i dit hjem i stue indretning såvel som indretningen i entréen.",
+        "Stock": 0,
+        "Colors": ["#008000", "#ffffff"],
+        "Categories": [3,7,1],
+        "Collections": [2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/hylder/0ad65114-1d67-11ed-9a78-ffa70a2214c3_540x.jpg"
+
+    },
+    {
+        "Name": "3 kurve af bambus fra J-Line by Jolipa",
+        "Price": 1499,
+        "Description": "Disse smukke kurve i flettet materiale af bambus tager sig godt ud i den klassiske boheme indretning som den lækre nipsting. Disse dekorationskurve passer perfekt ind som nipsting i din stue indretning med din stuepalme. Sig farvel til den funktionelle kurv! Her har du en kurv der udelukkende er til for synets skyld og den visuelle tilfredsstillelse! Og sikken en visuel oplevelse med disse smukke bambuskurve. De vil matche perfekt i din stue indretning med f. eks. En stuepalme. Det der får disse kurve til at passe godt ind i boheme indretningen er selve materialet bambus som er det perfekte element der skal til for indføre varme, naturmaterialer og de bløde linjer af disse lidt ujævne, men dog alligevel charmerende kurve.",
+        "Stock": 0,
+        "Colors": ["#ffa500", "#000000", "#00ff00"],
+        "Categories": [5],
+        "Collections": [4,2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/kurve/a66c5836-1893-11ed-a89b-ab78980e820a_540x.jpg"
+    },
+   {
+        "Name": "Kaffebord i guld J-Line by Jolipa",
+        "Price": 2100,
+        "Description": "Lavet af jern, med guld farve. W: 84cm, H: 35cm, L: 84cm",
+        "Stock": 0,
+        "Colors": ["#000000", "#00ff00"],
+        "Categories": [1, 7],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue/indretning/collections/sofaborde/5eafbf5e-5f6c-11ed-ab98-cf5a8fae6573_400x.jpg"
+    },
+    {
+        "Name": "Loftlampe i guld - It's About RoMi",
+        "Price": 610,
+        "Description": "Denne fine loftlampe passer perfekt ind i din luksus boheme indretning. Den giver et touch af et lidt mere moderne udtryk i din boligindretning. Den passer super godt i spisetue indretningen. Giver et helt særligt udtryk som en del af en luksus boheme indretning i spisestue indretning. Loftlampen er meget minimalistisk og ved ophæng af denne loftlampe 'støjer' det mindre. Det er meget vigtigt i en luksus boheme indretning at man har elementer der ikke støjer for meget. Simple living er good living. Denne smukke loftlampe giver dit hjem et ekstravagant indtryk som en del af spisestue indretningen. Loftlampen er tæt på uundværlig i enhver danskers hjem, og derfor bør alle overveje grundigt hvilken slags man ønsker. Denne lampe er perfekt i luksus boheme indretningen.",
+        "Stock": 0,
+        "Colors": ["#000000"],
+        "Categories": [5, 6],
+        "Collections": [3,2,4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/loftlamper/d311a6e8-16f9-11ed-ad8c-6785a4d7f793_540x.jpg"
+
+    },
+    {
+        "Name": "Lille rattanbord til opbevaring J-Line by Jolipa",
+        "Price": 3100,
+        "Description": "Metal Brun W: 60cm, H: 59cm, L: 60cm",
+        "Stock": 0,
+        "Colors": ["#000000", "#00ff00"],
+        "Categories": [3,7,1],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue%20indretning/collections/barborde-og-stole/4561041-14.jpg"
+
+    },
+    {
+        "Name": "Lille skab med hylde i rattan J-line by Jolipa",
+        "Price": 2100,
+        "Description": "Rattan Natur W: 40cm, H: 60cm, L: 40cm",
+        "Stock": 0,
+        "Colors": ["#008000"],
+        "Categories": [3,7,1],
+        "Collections": [3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/skabe/0ae71b20-1d67-11ed-a4a4-077ec7e15aa4_540x.jpg"
+    },
+    {
+        "Name": "Rattan kommode J-Line by Jolipa",
+        "Price": 2779,
+        "Description": "MDF Natur W: 30cm, H: 63cm, L: 40cm",
+        "Stock": 0,
+        "Colors": ["#0000ff", "#00ff00"],
+        "Categories": [3,7,1],
+        "Collections": [2,4,3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/vitrineskabe/a66bfa76-1893-11ed-a7b0-43443a7b293d_1400x.jpg"
+
+    },
+    {
+        "Name": "Rattan kommode med 3 skuffer J-Line by Jolipa",
+        "Price": 4100,
+        "Description": "Dette smukke rattan møbel vil passe perfekt ind i boheme indretning da den er lavet af naturmaterialer i form af træ. Den fine rattan giver dit hjem en dejlig oplevelse af at være i zen med din boheme indretning. Dette smukke møbel vil gøre godt som en del af din stue indretning. Giv dit hjem de lækreste boheme vibes med tæpper til stuen i de skønneste farver. Men sørg for at dæmpe med f. eks. Disse rattanmøbler der bløder farverne lidt op.",
+        "Stock": 0,
+        "Colors": ["#0000ff", "#00ff00"],
+        "Categories": [3,7,1],
+        "Collections": [3,4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/vitrineskabe/a6309030-1893-11ed-8a72-63ad701dee5e_1400x.jpg"
+    },
+    {
+        "Name": "Rattan skab med 2 låger J-Line by Jolipa",
+        "Price": 6410,
+        "Description": "MDF Natur W: 40cm, H: 140cm, L: 80cm",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [3,7,1],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/skabe/a66bf936-1893-11ed-a7ab-97916b74c481_540x.jpg"
+    },
+    {
+        "Name": "J-Line by Jolipa vase elfenben",
+        "Price": 1110,
+        "Description": "Smuk og unik vase fra mærket Columbine of fra serien J-line. Denne flotte vase er kreeret af flotte muslingeskaller, og sat sammen tilfældigt i et flot mosaiksammenspil. Denne mosaikvase kan bruges hjemme hos de fleste til at pifte indretningen op på en meget diskret, men dog en spændende måde ved at bryde med lidt ny struktur. Vasen giver dit rum et perlemorsagtigt udtryk, og giver lidt luksus til øjnene. Vasen er i en varm farve. (Fås også i en lidt mørkere farve på webshoppen). Tips til indretningen med mosaikvasen: Sæt mosaikvasen på gulvet: Hvis du sætter vasen på gulvet giver du rummet flere niveauer. Dette er med til at give rummet mere dybde, og dette behager din indre indretningsarkitekt en anelse mere. Match mosaikvasen med samme farve: Hvis du søger at skabe mere sammenhæng i din indretning med denne vase, kan du sørge for flere indretningsartikler af samme farve. Match mosaikvasen med andre farver: Denne mosaikvase er beige med lidt gule undertoner. Dvs. at mosaikvasen matcher rigtig godt med komplimentærfarven: blå, gerne i en pastel version. I sidste ende ved du bedst selv hvordan du bedst kan lide hvordan din indretning udarter sig. Derfor er ovennævnte tips kun en rettesnor du kan vælge at bruge.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#0000ff", "#a52a2a"],
+        "Categories": [5],
+        "Collections": [3,4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/kurve/d310e866-16f9-11ed-ac78-1b29cc44c12d_540x.jpg"
+    },
+    {
+        "Name": "J-Line by Jolipa vase bambus",
+        "Price": 110,
+        "Description": "Denne vase smukke fra Columbines J-line serie har et perlemorsagtigt udseende over sig, og giver din indretning lidt ekstra struktur. Årsagen til den flotte effekt er materialet der er lavet af mosaikbelagte, og behandlede muslingeskaller. Vasen bryder strukturen i rummet lidt, men er alligevel i neutrale, støvede farver så den giver et diskret pift uden at overtage opmærksomheden i det rum du vil bruge den i. Gode indretningstips ved brug af vasen: Placér vasen med mosaikker på gulvet: Vasen er høj. 71 cm. Ved at stille den på gulvet giver du lidt asymmetri i højderne i dit rum så det bliver mere spændende at befærde sig i. Match med spejl: Vasen tager sig virkelig godt ud hvis du placerer den lidt skråt foran et spejl. Match mosaik vasen med lignende farver: Hvis du kan finde andet boliginteriør der matcher med farven på vasen, så indret dig med nogle af disse også. Dette skaber mere sammenhæng i rummet. Put noget i vasen! Put gerne noget i vasen. Til påske kan du f. eks. Putte en troldegren i med matchende påskepynt! Match med mindre vase: Hvis der er noget der giver harmoni i dine små indretningstiltag. Så er det at placere én stor vase ved siden af en matchende mindre vase. Der er noget i bruddet af symmetrien der giver din indretningsarkitekt noget af en tilfredsstillelse.",
+        "Stock": 0,
+        "Colors": ["#ffffff"],
+        "Categories": [5],
+        "Collections": [2, 4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/kurve/d310e866-16f9-11ed-ac78-1b29cc44c12d_540x.jpg"
+
+    },
+    {
+        "Name": "Vægdekoration J-Line by Jolipa",
+        "Price": 825,
+        "Description": "Lækkert, elegant ophæng i macramé til boheme indretningen. Dette ophæng giver indretningen lidt tekstur til din boheme indretning. Dette giver rummet lidt mere liv uden at gå på kompromis med de rolige, varme neutrale farver du ønsker for at danne lidt harmoni i din bolig. Macramé ophænget kan hænge på væggen i de fleste rum. Her anbefales dog stuen eller værelset, da det ofte er de ’bløde’ rum der passer til sådanne macramé ophæng. Gode tips til indretningen med dette macramé ophæng: Macramé ophæng og planter: Hvis der er noget der virkelig går i harmoni med hinanden er det macramé stoffet i kombination med grønne planter i stuen eller soveværelset. Uanset hvad er planter altid en vinder når der skal indrettes for at tilføje lidt liv i dit hjem. Den røde tråd med macramé: For at skabe en sammenhæng i din indretning er det en god idé at matche flere interiørdele med hinanden i samme farve og struktur. Derfor ville det være en fin idé at finde flere elementer i din indretning hvor materialet er macramé. F. eks. Kunne du matche macramé ophænget med en fin macramé puf ved siden af et spejl. Eller matche ophænget med puder lavet i macramé.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#ff0000", "#a52a2a"],
+        "Categories": [5],
+        "Collections": [2, 3],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/opbevaring/collections/hylder/6f73ca38-5f6c-11ed-889d-1f87b646011c_540x.jpg"
+    },
+    {
+        "Name": "House Nordic Elche Teak 5-position Stol - 2 stk.",
+        "Price": 2495,
+        "Description": "5 position stol i teaktræ",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#ff0000", "#a52a2a", "#00ff00"],
+        "Categories": [1, 7],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue indretning/collections/spisestole/0acd457e-1d67-11ed-9952-ef87a945f7c7_540x.jpg"
+
+    },
+    {
+        "Name": "House Nordic Teak stige",
+        "Price": 610,
+        "Description": "Med en stige til din indretning opnår du nye højder med nipstingene i dit hjem. En stige i indretningen er et spændende indslag som du kan bruge på flere forskellige kreative måder. Denne smukke stige er perfekt til enhver indretning! Særligt stue indretning. Kan også sagtens bruges i værelses indretningen, badeværelses- eller køkken indretningen. Superfin med små farvede håndklæder på. Passer godt til f. eks. Planteophæng, og skaber ro og hygge med sin lyse, naturlige farve. Netop denne stige i lyst træ er lige sagen til at gå amok med nipsting og bringe varme og hygge til dit rum! Du kan også bruge stigen til indretningen i børneværelset. Med en stige i stue indretning bør du være ekstra kreativ med hvordan du bruger den, der kan det anbefales at du gør brug af nipsting til at pynte den. En kæmpe fordel ved at bruge stige i indretningen er at den kan pyntes fint parallelt med begivenheder og højtider. F. eks. Kan man hænge små påskeæg til påske, sætte kravlenisser på den i juletiden. Hvis du foretrækker en simpel indretning med stigen kan du også stille den tæt på f. eks. en stuepalme. Det gode ved at have en stige som en del af indretningen er at den er så nem at ændre udtryk på. Den er så foranderlig da du helt selv frit kan vælge hvilke nipsting der skal pryde den. Hvis du er typen der hurtigt kan blive træt af din stue indretning kan du være sikker på at du ikke bliver træt af en stige i indretningen i og med der er så stor mulighed for foranderlighed!",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#ff0000", "#a52a2a", "#0000ff"],
+        "Categories": [5],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/planteophæng/16188126387f9ec4fa0fcd0578476b94aaf45a3802.jpg"
+    },
+    {
+        "Name": "House Nordic Estroil Bakke",
+        "Price": 349,
+        "Description": "Bakker i natur vandhyacint, sæt af 3",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#ff0000", "#000000", "#0000ff"],
+        "Categories": [5],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/spisestue/indretning/collections/barborde-og-stole/b1a4ec7a-1890-11ed-bfb5-f7a1fc6d582d_1400x.jpg"
+
+    },
+    {
+        "Name": "House Nordic Venezia Sofabord 2",
+        "Price": 529,
+        "Description": "Dette smukke sidebord vil passe perfekt til enhver boheme indretning. Opnå nye højder med din stue indretning ved at tilføje det smukke bord i et tomt hjørne med en fantastisk buket blomster der kan øge perfektionen af din stue indretning. Oplev hvordan dette smukke House Nordic Venezia sidebord bidrager til det smukke udtryk i dit hjem. Gør dig det behageligt og majestætisk når du indretter dig, og gør dig selv den tjeneste at indrette dig med dette smukke bord som en del af din boheme indretning.",
+        "Stock": 0,
+        "Colors": ["#ff0000", "#000000", "#0000ff"],
+        "Categories": [1, 7],
+        "Collections": [5],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/stue/indretning/collections/sofaborde/5eafbf5e-5f6c-11ed-ab98-cf5a8fae6573_400x.jpg"   
+
+    },
+    {
+        "Name": "Træskilte med tekst 1",
+        "Price": 249.95,
+        "Description": "For at bidrage med lidt ekstra hygge til din indretning i dit lille boheme hjem kan det betale sig at investere i nogle træskilte med tekst og træskilte med quotes. Disse finder du her hos Mikrohome. De er designet af mig selv, og de er skabt med henblik på at matche den varme og cozy indretning. Hvis du køber træskilte med tekst og flotte mønstre kan det være med til at skabe det flotteste spil på dine vægge uden at blive for meget. Disse træskilte med tekst er trykt på MDF plader. Fordelen ved dette er at den blanke overflade gør den nem at rengøre. Skiltene har et særligt naturlook over sig, så derfor er det oplagt at bruge i en indretning i dit hjem hvor du kører selvsamme stil hele vejen igennem. Træskilte med tekst giver din indretning et særligt afslappet, men stilet udtryk i hjemmet. Ved at have træskilte med tekst til at hænge i dine rum gør du op med de tomme vægge. Naturlooket af disse skilte giver en unik varme i indretningen, og en følelse af at være i behagelige, varme omgivelser. Ønsker du at have nogle rum hvor man kan slappe af i smukke omgivelser med en helt særlig ro over sig? Så er disse træskilte med tekst og quotes lige noget for dig. Træskilte med tekst vil kunne bruges i spisestue indretning, stue indretning, værelse indretning. De kan sågar bruges til indretning af din egen udendørs lounge hvor du kan nyde sommeren og træskilte med tekst. Det er kun fantasien der sætter dine grænser med disse vægskilte kan du komme langt i din boheme indretning.",
+        "Stock": 0,
+        "Colors": ["#ffffff", "#ff0000", "#000000", "#0000ff"],
+        "Categories": [5],
+        "Collections": [3, 2],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/skilte/IMG_20220906_183539_540x.jpg"
+
+    },
+    {
+        "Name": "Træskilte med tekst 2",
+        "Price": 249.95,
+        "Description": "For at bidrage med lidt ekstra hygge til din indretning i dit lille boheme hjem kan det betale sig at investere i nogle træskilte med tekst og træskilte med quotes. Disse finder du her hos Mikrohome. De er designet af mig selv, og de er skabt med henblik på at matche den varme og cozy indretning. Hvis du køber træskilte med tekst og flotte mønstre kan det være med til at skabe det flotteste spil på dine vægge uden at blive for meget. Disse træskilte med tekst er trykt på MDF plader. Fordelen ved dette er at den blanke overflade gør den nem at rengøre. Skiltene har et særligt naturlook over sig, så derfor er det oplagt at bruge i en indretning i dit hjem hvor du kører selvsamme stil hele vejen igennem. Træskilte med tekst giver din indretning et særligt afslappet, men stilet udtryk i hjemmet. Ved at have træskilte med tekst til at hænge i dine rum gør du op med de tomme vægge. Naturlooket af disse skilte giver en unik varme i indretningen, og en følelse af at være i behagelige, varme omgivelser. Ønsker du at have nogle rum hvor man kan slappe af i smukke omgivelser med en helt særlig ro over sig? Så er disse træskilte med tekst og quotes lige noget for dig. Træskilte med tekst vil kunne bruges i spisestue indretning, stue indretning, værelse indretning. De kan sågar bruges til indretning af din egen udendørs lounge hvor du kan nyde sommeren og træskilte med tekst. Det er kun fantasien der sætter dine grænser med disse vægskilte kan du komme langt i din boheme indretning.",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [5],
+        "Collections": [4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/skilte/IMG-20220906-182336.jpg"
+    },
+    {
+        "Name": "Træskilte med tekst 3",
+        "Price": 249.95,
+        "Description": "For at bidrage med lidt ekstra hygge til din indretning i dit lille boheme hjem kan det betale sig at investere i nogle træskilte med tekst og træskilte med quotes. Disse finder du her hos Mikrohome. De er designet af mig selv, og de er skabt med henblik på at matche den varme og cozy indretning. Hvis du køber træskilte med tekst og flotte mønstre kan det være med til at skabe det flotteste spil på dine vægge uden at blive for meget. Disse træskilte med tekst er trykt på MDF plader. Fordelen ved dette er at den blanke overflade gør den nem at rengøre. Skiltene har et særligt naturlook over sig, så derfor er det oplagt at bruge i en indretning i dit hjem hvor du kører selvsamme stil hele vejen igennem. Træskilte med tekst giver din indretning et særligt afslappet, men stilet udtryk i hjemmet. Ved at have træskilte med tekst til at hænge i dine rum gør du op med de tomme vægge. Naturlooket af disse skilte giver en unik varme i indretningen, og en følelse af at være i behagelige, varme omgivelser. Ønsker du at have nogle rum hvor man kan slappe af i smukke omgivelser med en helt særlig ro over sig? Så er disse træskilte med tekst og quotes lige noget for dig. Træskilte med tekst vil kunne bruges i spisestue indretning, stue indretning, værelse indretning. De kan sågar bruges til indretning af din egen udendørs lounge hvor du kan nyde sommeren og træskilte med tekst. Det er kun fantasien der sætter dine grænser med disse vægskilte kan du komme langt i din boheme indretning.",
+        "Stock": 0,
+        "Colors": ["#a52a2a"],
+        "Categories": [5],
+        "Collections": [4],
+        "Images": "https://semesterprojekt.blob.core.windows.net/images/images/skilte/IMG_20220907_114454_edit_63990204402735_540x.jpg"
+    }
+]

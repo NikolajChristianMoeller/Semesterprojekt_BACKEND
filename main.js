@@ -1,8 +1,23 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes } from "sequelize";
 import "dotenv/config";
-import fs from "fs";
+import Collection from "./models/Collection.js";
+import sequelize from "./models/Sequalize.js";
+import Color from "./models/Color.js";
+import Product from "./models/Product.js";
+import ProductCollection from "./models/ProductCollection.js";
+import ProductColor from "./models/ProductColor.js";
+import Review from "./models/Review.js";
+import Category from "./models/Category.js";
+import ProductCategory from "./models/ProductCategory.js";
+import productRoute from "./routes/products.js";
+import colorRoute from "./routes/colors.js";
+import collectionRoute from "./routes/collections.js";
+import categoryRoute from "./routes/categories.js";
+import reviewRoute from "./routes/review.js";
+import { createTransport } from "nodemailer";
+
+
 
 const app = express();
 app.use(express.json());
@@ -205,7 +220,7 @@ ProductColor.associate = () => {
     as: "Product",
   });
   ProductColor.belongsTo(Color, {
-    foreignKey: "ID",
+    foreignKey: "Code",
     targetKey: "color_id",
     as: "Color",
   });
@@ -224,8 +239,32 @@ ProductCollection.associate = () => {
   });
 };
 
+ProductCategory.associate = () => {
+  ProductCategory.belongsTo(Product, {
+    foreignKey: "ID",
+    targetKey: "product_id",
+    as: "Product",
+  });
+  ProductCategory.belongsTo(Category, {
+    foreignKey: "ID",
+    targetKey: "category_id",
+    as: "Category",
+  });
+};
+
+Product.belongsToMany(Category, {
+  as: "Categories",
+  through: ProductCategory,
+  foreignKey: "product_id",
+});
+Category.belongsToMany(Product, {
+  as: "ProductCategory",
+  through: ProductCategory,
+  foreignKey: "category_id",
+});
+
 Product.belongsToMany(Color, {
-  as: "ProductColor",
+  as: "Colors",
   through: ProductColor,
   foreignKey: "product_id",
 });
@@ -236,7 +275,7 @@ Color.belongsToMany(Product, {
 });
 
 Product.belongsToMany(Collection, {
-  as: "ProductCollection",
+  as: "Collections",
   through: ProductCollection,
   foreignKey: "product_id",
 });
@@ -249,317 +288,88 @@ Collection.belongsToMany(Product, {
 Product.hasMany(Review);
 Review.belongsTo(Product);
 
-Product.hasMany(Image);
-Image.belongsTo(Product);
-
 // Sync the models with the database
-async function syncDatabase() {
+async function syncDatabase(bool) {
   try {
-    await sequelize.sync(); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({force: bool}); // If { force: true } this will whipe database and recreate tables (should only be used if changes are made to the schemas)
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
   }
 }
 
-//PRODUCT
+// ROUTES //
 
-app.get("/products", async (req, res) => {
+app.use("/products", productRoute);
+
+app.use("/colors", colorRoute);
+
+app.use("/collections", collectionRoute);
+
+app.use("/categories", categoryRoute);
+
+app.use("/reviews", reviewRoute)
+
+app.get("/keys", async (req, res) =>{
   try {
-    let products;
-    if (req.query.pageSize >= 5) {
-      products = await Product.findAll({
-        include: [
-          { model: Color, as: "ProductColor" },
-          { model: Collection, as: "ProductCollection" },
-          { model: Review },
-          { model: Image },
-        ],
-        offset: Number(req.query.offSet),
-        limit: Number(req.query.pageSize),
-      });
-    } else {
-      products = await Product.findAll({
-        include: [
-          { model: Color, as: "ProductColor" },
-          { model: Collection, as: "ProductCollection" },
-          { model: Review },
-          { model: Image },
-        ],
-      });
-    }
-
-    res.json(products);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//NEEDS A BETTER 'WHERE'! V
-app.post("/products", async (req, res) => {
-  try {
-    const newProduct = req.body;
-    const [product, built] = await Product.findOrBuild({
-      where: {
-        Name: newProduct.Name,
-        Price: newProduct.Price,
-        Description: newProduct.Description,
-        Stock: newProduct.Stock,
-      },
-    });
-    if (built) {
-      product.ID = Math.floor(Math.random() * 100000000);
-      await product.save();
-      if (newProduct.colors) {
-        newProduct.colors.forEach(async (color) => {
-          await ProductColor.findOrCreate({
-            where: {
-              product_id: product.ID,
-              color_id: color,
-            },
-          });
-        });
-      }
-      if (newProduct.collections) {
-        newProduct.collections.forEach(async (collection) => {
-          await ProductCollection.findOrCreate({
-            where: {
-              product_id: product.ID,
-              collection_id: collection,
-            },
-          });
-        });
-      }
-
-      res.json(product);
-    } else {
-      res.status(500).json({ error: "An Identical product already exists!" });
-    }
-  } catch (error) {
-    console.error("Error creating product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.put("/products/:id", async (req, res) => {
-  const newProduct = req.body;
-  try {
-    const product = await Product.update(
-      {
-        Name: newProduct.Name,
-        Price: newProduct.Price,
-        Description: newProduct.Description,
-      },
-      {
-        where: {
-          ID: req.params.id,
-        },
-      }
-    );
-
+    let product;
+      product = await Product.findAll({
+        attributes: ["ID"]     
+      });  
     res.json(product);
   } catch (error) {
-    console.error("Error updating product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error fetching product IDs:", error);
+    res.status(500).json({ error: "Error getting product IDs" });
   }
-});
+})
 
-app.delete("/products/:id", async (req, res) => {
+app.get("/", async (req, res)=>{
+  await syncDatabase(false);
+  res.send("Database Sync successful")
+})
+
+
+app.post("/mail", async (req, res)=>{
   try {
-    const product = await Product.destroy({
-      where: {
-        ID: req.params.id,
-      },
-    });
-
-    res.json(product);
-  } catch (error) {
-    console.error("Error deleting product:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    const transport = createTransport({
+      service: "gmail",
+      auth: {
+          user: pEnv.GMAIL_USER,
+          pass: pEnv.GMAIL_PASS
+      }  
+  })
+  
+  const content = {
+      from: "noreplymikrohome@gmail.com",
+      to: req.body.mailTo,
+      subject: `Ordrebekræftelse ${req.body.orderNum}`,
+      text: req.body.message
   }
-});
-
-/// COLOR ///
-app.get("/colors", async (req, res) => {
-  try {
-    let colors;
-    if (req.query.pageSize >= 5) {
-      colors = await Color.findAll();
-    } else {
-      colors = await Color.findAll();
-    }
-
-    res.json(colors);
-  } catch (error) {
-    console.error("Error fetching colors:", error);
-    res.status(500).json({ error: "Internal Server Error in 'Colors'" });
-  }
-});
-
-app.post("/colors", async (req, res) => {
-  try {
-    const newColor = req.body;
-    const [color, built] = await Color.findOrBuild({
-      where: {
-        Name: newColor.Name,
-        Code: newColor.Code,
-      },
-    });
-    if (built) {
-      color.ID = Math.floor(Math.random() * 100000000);
-      await color.save();
-      if (newColor.products) {
-        newColor.products.forEach(async (product) => {
-          await ProductColor.findOrCreate({
-            where: {
-              product_id: product,
-              color_id: newColor.ID,
-            },
-          });
-        });
+  
+  transport.sendMail(content, (err, res)=>{
+      if(err){
+        throw new Error("error sending mail"+ err)
       }
-
-      res.json(color);
-    } else {
-      res.status(500).json({ error: "An Identical color already exists!" });
-    }
+  })
+  res.send("Mail sent");
   } catch (error) {
-    console.error("Error creating color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.log(error)
+    res.status(500).json({error: "Error while sending mail!"})
   }
-});
 
-app.put("/colors/:id", async (req, res) => {
-  const newColor = req.body;
-  try {
-    const color = await Color.update(
-      {
-        Name: newColor.Name,
-        Code: newColor.Code,
-      },
-      {
-        where: {
-          ID: req.params.id,
-        },
-      }
-    );
+})
 
-    res.json(color);
-  } catch (error) {
-    console.error("Error updating color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
 
-app.delete("/colors/:id", async (req, res) => {
-  try {
-    const color = await Color.destroy({
-      where: {
-        ID: req.params.id,
-      },
-    });
+//top secret route to force reset the database
+//should be removed before final deploy
+app.delete("/NsgYDdDoWqga0CvO55Km", async (req, res)=>{
+  await syncDatabase(true);
+  res.send("Database Reset complete")
+})
 
-    res.json(color);
-  } catch (error) {
-    console.error("Error deleting color:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-// COLLECTION
-app.get("/collections", async (req, res) => {
-  try {
-    let collections;
-    if (req.query.pageSize >= 5) {
-      collections = await Collection.findAll();
-    } else {
-      collections = await Collection.findAll();
-    }
-
-    res.json(collections);
-  } catch (error) {
-    console.error("Error fetching collections:", error);
-    res.status(500).json({ error: "Internal Server Error in 'Collection'" });
-  }
-});
-
-app.post("/collections", async (req, res) => {
-  try {
-    const newCollection = req.body;
-    const [collection, built] = await Collection.findOrBuild({
-      where: {
-        Name: newCollection.Name,
-      },
-    });
-    if (built) {
-      collection.ID = Math.floor(Math.random() * 100000000);
-      await collection.save();
-      if (newCollection.products) {
-        newCollection.products.forEach(async (product) => {
-          await ProductCollection.findOrCreate({
-            where: {
-              product_id: product,
-              collection_id: newCollection.ID,
-            },
-          });
-        });
-      }
-
-      res.json(collection);
-    } else {
-      res
-        .status(500)
-        .json({ error: "An Identical collection already exists!" });
-    }
-  } catch (error) {
-    console.error("Error creating collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.put("/collections/:id", async (req, res) => {
-  const newCollection = req.body;
-  try {
-    const collection = await Collection.update(
-      {
-        Name: newCollection.Name,
-        Code: newCollection.Code,
-      },
-      {
-        where: {
-          ID: req.params.id,
-        },
-      }
-    );
-
-    res.json(collection);
-  } catch (error) {
-    console.error("Error updating collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.delete("/collection/:id", async (req, res) => {
-  try {
-    const collection = await Collection.destroy({
-      where: {
-        ID: req.params.id,
-      },
-    });
-
-    res.json(collection);
-  } catch (error) {
-    console.error("Error deleting collection:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
 
 // Middleware for syncing the database and running example functions
-app.use(async (req, res, next) => {
-  await syncDatabase();
-  next();
-});
+// runs on "/" atm should be changed so it doesn't sync everytime an undefined route is called or whenever "/" is accessed
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
