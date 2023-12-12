@@ -7,7 +7,7 @@ const productFile = JSON.parse(fs.readFileSync("./newProducts.json"))
 
 
 
-// https://semesterprojekt-server.azurewebsites.net/products
+// https://semesterprojekt-server.azurewebsites.net/
 
 const color = async ()=>{
   colorfile.forEach(async color => {
