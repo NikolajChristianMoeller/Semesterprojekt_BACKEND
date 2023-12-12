@@ -30,7 +30,6 @@ try {
     },
     });
     if (built) {
-    collection.ID = Math.floor(Math.random() * 100000000);
     await collection.save();
     if (newCollection.products) {
         newCollection.products.forEach(async (product) => {

@@ -1,7 +1,6 @@
 import { Router } from "express";
 import Collection from "../models/Collection.js";
 import Color from "../models/Color.js";
-import Image from "../models/Image.js";
 import Product from "../models/Product.js";
 import ProductCollection from "../models/ProductCollection.js";
 import ProductColor from "../models/ProductColor.js";
@@ -34,7 +33,6 @@ productRoute.get("/", async (req, res) => {
         { model: Collection, as: "Collections" },
         { model: Category, as: "Categories" },
         { model: Review },
-        { model: Image },
       ],
       offset: Number(req.query.offSet),
       limit:  Number(req.query.limit),
@@ -57,7 +55,6 @@ productRoute.get("/", async (req, res) => {
         }},
         { model: Category, as: "Categories" },
         { model: Review },
-        { model: Image },
       ],
       offset: Number(req.query.offSet),
       limit: Number(req.query.limit),
@@ -80,7 +77,6 @@ productRoute.get("/", async (req, res) => {
           Name: req.query.filterValue
         }},
         { model: Review },
-        { model: Image },
       ],
       offset: Number(req.query.offSet),
       limit: Number(req.query.limit),
@@ -100,7 +96,6 @@ productRoute.get("/", async (req, res) => {
         { model: Collection, as: "Collections"},
         { model: Category, as: "Categories"},
         { model: Review },
-        { model: Image },
       ],
       offset: Number(req.query.offSet),
       limit: Number(req.query.limit),
@@ -125,7 +120,6 @@ productRoute.get("/", async (req, res) => {
         { model: Collection, as: "Collections" },
         { model: Category, as: "Categories" },
         { model: Review },
-        { model: Image },
       ],
       offset: Number(req.query.offSet),
       limit: Number(req.query.limit),
@@ -155,7 +149,6 @@ productRoute.get("/", async (req, res) => {
                 { model: Collection, as: "Collections" },
                 { model: Category, as: "Categories" },
                 { model: Review },
-                { model: Image },
             ]       
         });  
       res.json(product);

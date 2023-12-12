@@ -4,7 +4,6 @@ import "dotenv/config";
 import Collection from "./models/Collection.js";
 import sequelize from "./models/Sequalize.js";
 import Color from "./models/Color.js";
-import Image from "./models/Image.js";
 import Product from "./models/Product.js";
 import ProductCollection from "./models/ProductCollection.js";
 import ProductColor from "./models/ProductColor.js";
@@ -16,6 +15,8 @@ import colorRoute from "./routes/colors.js";
 import collectionRoute from "./routes/collections.js";
 import categoryRoute from "./routes/categories.js";
 import reviewRoute from "./routes/review.js";
+import { createTransport } from "nodemailer";
+
 
 
 const app = express();
@@ -101,9 +102,6 @@ Collection.belongsToMany(Product, {
 Product.hasMany(Review);
 Review.belongsTo(Product);
 
-Product.hasMany(Image);
-Image.belongsTo(Product);
-
 // Sync the models with the database
 async function syncDatabase(bool) {
   try {
@@ -142,6 +140,37 @@ app.get("/keys", async (req, res) =>{
 app.get("/", async (req, res)=>{
   await syncDatabase(false);
   res.send("Database Sync successful")
+})
+
+
+app.post("/mail", async (req, res)=>{
+  try {
+    const transport = createTransport({
+      service: "gmail",
+      auth: {
+          user: pEnv.GMAIL_USER,
+          pass: pEnv.GMAIL_PASS
+      }  
+  })
+  
+  const content = {
+      from: "noreplymikrohome@gmail.com",
+      to: req.body.mailTo,
+      subject: `Ordrebekræftelse ${req.body.orderNum}`,
+      text: req.body.message
+  }
+  
+  transport.sendMail(content, (err, res)=>{
+      if(err){
+        throw new Error("error sending mail"+ err)
+      }
+  })
+  res.send("Mail sent");
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({error: "Error while sending mail!"})
+  }
+
 })
 
 

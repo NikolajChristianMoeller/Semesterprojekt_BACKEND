@@ -31,7 +31,6 @@ try {
     },
     });
     if (built) {
-    category.ID = Math.floor(Math.random() * 100000000);
     await category.save();
     if (newCategory.products) {
         newCategory.products.forEach(async (product) => {

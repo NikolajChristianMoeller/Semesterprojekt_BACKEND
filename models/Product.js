@@ -24,6 +24,9 @@ const Product = sequelize.define("Product", {
     Stock: {
       type: DataTypes.INTEGER,
     },
+    Images: {
+      type: DataTypes.STRING,
+    }
   });
 
   export default Product

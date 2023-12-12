@@ -1,20 +1,23 @@
 [
     {
-        "Name": "Chairs"
+        "Name": "Living Room"
       },
       {
-        "Name": "Tables"
+        "Name": "Dining Room"
       },
       {
-        "Name": "Sofas"
+        "Name": "Storage"
       },
       {
-        "Name": "Beds"
+        "Name": "Dreamcatchers"
       },
       {
-        "Name": "Cabinets"
+        "Name": "Decoration"
       },
       {
-        "Name": "Lamps"
+        "Name": "Lighting"
+      },
+      {
+        "Name": "Furniture"
       }
 ]
