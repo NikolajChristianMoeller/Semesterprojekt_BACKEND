@@ -11,7 +11,7 @@ const productFile = JSON.parse(fs.readFileSync("./newProducts.json"))
 
 const color = async ()=>{
   colorfile.forEach(async color => {
-    const res = await fetch(`http://localhost:3000/colors`, {
+    const res = await fetch(`https://semesterprojekt-server.azurewebsites.net/colors`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const color = async ()=>{
 
 const collection = async ()=>{
   collectionFile.forEach(async color => {
-    const res = await fetch(`http://localhost:3000/collections`, {
+    const res = await fetch(`https://semesterprojekt-server.azurewebsites.net/collections`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const collection = async ()=>{
 
 const category = async ()=>{
   categoryFile.forEach(async color => {
-    const res = await fetch(`http://localhost:3000/categories`, {
+    const res = await fetch(`https://semesterprojekt-server.azurewebsites.net/categories`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const category = async ()=>{
 
 const product = async ()=> {
       productFile.forEach(async product => {
-                const res = await fetch(`http://localhost:3000/products`, {
+                const res = await fetch(`https://semesterprojekt-server.azurewebsites.net/products`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
