@@ -25,7 +25,7 @@ const Product = sequelize.define("Product", {
       type: DataTypes.INTEGER,
     },
     Images: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     }
   });
 
