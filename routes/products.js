@@ -19,9 +19,8 @@ productRoute.get("/", async (req, res) => {
     rows: null,
     count: 0
   }
+  if(Object.keys(req.query).length !== 0){
     try {
-      // product here will contain 2 attributes /count/ representing the number of rows matching the query 
-      // and another attribute /rows/ containing the data matching the query
  switch (req.query.filterBy) {
   case req.query.filterBy = "Colors":
     products.rows = await Product.findAll({
@@ -136,7 +135,26 @@ productRoute.get("/", async (req, res) => {
       console.error("Error fetching products:", error);
       res.status(500).json({ error: "Error getting products" + error });
     }
-  });
+  }else{
+    try{
+      products.rows = await Product.findAll({
+        include: [
+          { model: Color, as: "Colors"},
+          { model: Collection, as: "Collections" },
+          { model: Category, as: "Categories" },
+          { model: Review },
+        ]
+      });
+  
+  
+      products.count = await Product.count();
+      res.json(products);  
+  
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).json({ error: "Error getting products" + error });
+    }
+}});
 
 
   productRoute.get("/:id", async (req, res) => {
