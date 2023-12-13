@@ -1,6 +1,8 @@
 import sequelize from "./Sequalize.js";
 import { DataTypes } from "sequelize";
 
+//define structure of table
+
 const Product = sequelize.define("Product", {
     ID: {
       type: DataTypes.INTEGER,

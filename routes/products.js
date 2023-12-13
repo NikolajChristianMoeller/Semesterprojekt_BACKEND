@@ -19,10 +19,14 @@ productRoute.get("/", async (req, res) => {
     rows: null,
     count: 0
   }
+//check if any request query has been given
   if(Object.keys(req.query).length !== 0){
     try {
  switch (req.query.filterBy) {
   case req.query.filterBy = "Colors":
+// all cases work similairly in that they will only return the products 
+// that have a relation in the requested table that contains the requested value
+// IE table 'Color' and the value 'white'
     products.rows = await Product.findAll({
       include: [
         { model: Color, as: "Colors", 
@@ -40,7 +44,9 @@ productRoute.get("/", async (req, res) => {
       ],
     });
 
-
+// we count the product itself here as using findAndCount on the other query would also
+// count all Colors and so forth resulting in a useless count as we use it for paginating the
+// products (it should be noted that in the current state the counts always return the total count of products)
     products.count = await Product.count();
     res.json(products);  
     break;

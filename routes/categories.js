@@ -7,12 +7,7 @@ const categoryRoute = Router()
 
 categoryRoute.get("/", async (req, res) => {
 try {
-    let category;
-    if (req.query.pageSize >= 5) {
-    category = await Category.findAll();
-    } else {
-    category = await Category.findAll();
-    }
+    const category = await Category.findAll();
 
     res.json(category);
 } catch (error) {
@@ -30,8 +25,10 @@ try {
         Name: newCategory.Name,
     },
     });
+
+// only runs if no existing row matching query was found
     if (built) {
-    await category.save();
+        await category.save();
     if (newCategory.products) {
         newCategory.products.forEach(async (product) => {
         await ProductCategory.findOrCreate({

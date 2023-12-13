@@ -1,5 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "undefined/subscriptions/25d66fc3-2f71-49eb-9d3b-6a90a6e8a712/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Semesterprojekt-Server",
-  "appService.deploySubpath": ".",
-  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"]
-}

@@ -26,7 +26,9 @@ const pEnv = process.env;
 
 const PORT = pEnv.PORT | 8080;
 
-// Define associations between the models
+// Define associations between the models:
+
+//Defining tables relation to their junction tables
 ProductColor.associate = () => {
   ProductColor.belongsTo(Product, {
     foreignKey: "ID",
@@ -66,6 +68,8 @@ ProductCategory.associate = () => {
   });
 };
 
+
+//Define many to many relations between tables 
 Product.belongsToMany(Category, {
   as: "Categories",
   through: ProductCategory,
@@ -99,6 +103,7 @@ Collection.belongsToMany(Product, {
   foreignKey: "collection_id",
 });
 
+//one to many
 Product.hasMany(Review);
 Review.belongsTo(Product);
 
@@ -124,6 +129,8 @@ app.use("/categories", categoryRoute);
 
 app.use("/reviews", reviewRoute)
 
+
+//Used to create routes in frontend so all products have their own route through their id
 app.get("/keys", async (req, res) =>{
   try {
     let product;
@@ -137,14 +144,18 @@ app.get("/keys", async (req, res) =>{
   }
 })
 
+//default route checks if database table matches the tables in the code
 app.get("/", async (req, res)=>{
   await syncDatabase(false);
   res.send("Database Sync successful")
 })
 
+//route for sending order confirmations through email
+//nodemailer + gmail used to achieve this
 
 app.post("/mail", async (req, res)=>{
   try {
+// define service + credentials for nodemailer to use
     const transport = createTransport({
       service: "gmail",
       auth: {
@@ -153,6 +164,8 @@ app.post("/mail", async (req, res)=>{
       }  
   })
   
+
+// set mail content (gets the actual content from frontend)
   const content = {
       from: "noreplymikrohome@gmail.com",
       to: req.body.mailTo,
@@ -170,20 +183,15 @@ app.post("/mail", async (req, res)=>{
     console.log(error)
     res.status(500).json({error: "Error while sending mail!"})
   }
-
 })
 
 
 //top secret route to force reset the database
-//should be removed before final deploy
+//should be removed before final deploy?
 app.delete("/NsgYDdDoWqga0CvO55Km", async (req, res)=>{
   await syncDatabase(true);
   res.send("Database Reset complete")
 })
-
-
-// Middleware for syncing the database and running example functions
-// runs on "/" atm should be changed so it doesn't sync everytime an undefined route is called or whenever "/" is accessed
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

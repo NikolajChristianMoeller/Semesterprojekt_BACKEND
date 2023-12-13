@@ -1,6 +1,8 @@
 import sequelize from "./Sequalize.js";
 import { DataTypes } from "sequelize";
 
+//define structure of table
+
 const ProductCategory = sequelize.define(
     "Product_Category",
     {

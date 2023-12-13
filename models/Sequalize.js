@@ -2,6 +2,8 @@ import { Sequelize } from "sequelize";
 import "dotenv/config";
 import fs from "fs";
 
+//set connection credentials and accespoint for backend to use
+
 const pEnv = process.env;
 
 const PORT = pEnv.PORT | 3000;

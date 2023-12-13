@@ -7,12 +7,7 @@ const collectionRoute = Router();
 
 collectionRoute.get("/", async (req, res) => {
 try {
-    let collections;
-    if (req.query.pageSize >= 5) {
-    collections = await Collection.findAll();
-    } else {
-    collections = await Collection.findAll();
-    }
+    const collections = await Collection.findAll();
 
     res.json(collections);
 } catch (error) {
