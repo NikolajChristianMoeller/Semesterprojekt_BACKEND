@@ -170,6 +170,7 @@ try {
         Price: newProduct.Price,
         Description: newProduct.Description,
         Stock: newProduct.Stock,
+        Images: newProduct.Images
     },
     });
     if (created) {
