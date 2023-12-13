@@ -14,11 +14,11 @@ const sequelize = new Sequelize(
     {
       host: pEnv.MYSQL_HOST,
       dialect: "mysql",
-      dialectOptions: {
-        ssl: {
-          ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem"),
-        },
-      },
+      // dialectOptions: {
+      //   ssl: {
+      //     ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem"),
+      //   },
+      // },
     }
   );
 
