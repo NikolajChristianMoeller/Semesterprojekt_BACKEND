@@ -166,7 +166,7 @@ productRoute.get("/", async (req, res) => {
   productRoute.get("/:id", async (req, res) => {
     try {
       let product;
-      //find by pk = find by primary key so we find the item with the enter
+//find by pk = find by primary key so we find the item with the requested id
         product = await Product.findByPk(req.params.id,{
             include: [
                 { model: Color, as: "Colors" },
@@ -184,7 +184,6 @@ productRoute.get("/", async (req, res) => {
 
 
 
-//NEEDS A BETTER 'WHERE'! V
 productRoute.post("/", async (req, res) => {
 try {
     const newProduct = req.body;
@@ -369,7 +368,6 @@ try {
 }
 });
 
-// TODO: dont forget to fix this later
 productRoute.put("/:id/stock", async (req, res) => {
   const newStock = req.body.Stock
   try {
