@@ -110,7 +110,7 @@ Review.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase(bool) {
   try {
-    await sequelize.sync({force: bool}); // If { force: true } this will whipe database and recreate tables (should only be used if changes are made to the schemas)
+    await sequelize.sync({force: bool}); // If { force: true } this will wipe database and recreate tables (should only be used if changes are made to the schemas)
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -183,14 +183,6 @@ app.post("/mail", async (req, res)=>{
     console.log(error)
     res.status(500).json({error: "Error while sending mail!"})
   }
-})
-
-
-//top secret route to force reset the database
-//should be removed before final deploy?
-app.delete("/NsgYDdDoWqga0CvO55Km", async (req, res)=>{
-  await syncDatabase(true);
-  res.send("Database Reset complete")
 })
 
 app.listen(PORT, () => {
