@@ -1,18 +1,20 @@
-Semesterprojekt Backend API Server
+# 2nd Semester Project - Backend
+
+## Semesterprojekt Backend API Server
 
 Online Database URL: jane-db.mysql.database.azure.com
 
-Link to deployed backend:
+## Link to deployed backend
 
-# https://semesterprojekt-server.azurewebsites.net/
+https://semesterprojekt-server.azurewebsites.net/
 
-Link to deployed frontend:
+## Link to deployed frontend
 
-# https://semesterprojekt-frontend.vercel.app/
+https://semesterprojekt-frontend.vercel.app/
 
-Installation:
+## Installation
 
-To run this app locally:
+To run this application on your local machine:
 
 First off you will need to setup a MySQL database locally. Then go through the steps below:
 
@@ -39,21 +41,21 @@ First off you will need to setup a MySQL database locally. Then go through the s
 
        7 - For CRUD functionality, without a frontend, a third party app like Postman is required.
 
-       8 - Have fun!
+       8 - Check out our frontend application and sync it with this backend.
 
-       10 - Check out our frontend application and sync it with this backend.
+       9 - All done!
 
-How to use the API via Azure, without a frontend:
+## How to use the API via Azure, without a frontend
 
        1 - For CRUD functionality a third party app like Postman is required.
 
        2 - To access the application use endpoint as url in Postman or similar app:  https://semesterprojekt-server.azurewebsites.net/
 
-How to setup the mail service:
+## How to setup the mail service
 
-      Create an email account and the following to your .env file:
+       1 - Create an email account and add the following to your .env file:
 
         GMAIL_PASS= your email password
         GMAIL_USER= your email address
 
-         * Note that you don't necessarily have to use gmail, this is just what we called the credentials.
+         * Note that you do not necessarily have to use gmail, this is just what we called the credentials.
